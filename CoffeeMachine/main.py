@@ -1,3 +1,16 @@
+# coding=utf-8
+# Marcelo Ambrosio de Goes
+# marcelogoes@gmail.com
+# 2022-01-30
+
+# 100 Days of Code: The Complete Python Pro Bootcamp for 2022
+# Day 15 - Coffee Machine
+
+# Data provided by the exercise
+
+# print comments
+verbose = 1
+
 MENU = {
     "espresso": {
         "ingredients": {
@@ -30,4 +43,13 @@ resources = {
     "coffee": 100,
 }
 
+if verbose == 1:
+    print(resources)
 
+# TODO 1: Prompt user by asking "What would you like?"
+# TODO 2: Turn off Coffee Machine by entering "off"
+# TODO 3: Print report
+# TODO 4: Check resources sufficient?
+# TODO 5: Process coins
+# TODO 6: Check transaction successful?
+# TODO 7: Make Coffee
