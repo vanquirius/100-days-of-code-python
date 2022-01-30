@@ -43,13 +43,27 @@ resources = {
     "coffee": 100,
 }
 
-if verbose == 1:
-    print(resources)
-
 # TODO 1: Prompt user by asking "What would you like?"
+
+def capture_user_input():
+    # Promt user for input
+    user_input = lowercase(input("What would you like? (expresso, latte, cappuccino)"))
+    # Validate user input
+    if user_input not in ("expresso", "latte", "cappuccino", "off", "report"):
+        print("Invalid option. Please choose again between expresso, latte and cappuccino.")
+        user_input = capture_user_input()
+    else:
+        print("You chose " + user_input + "!")
+        return user_input
+
 # TODO 2: Turn off Coffee Machine by entering "off"
 # TODO 3: Print report
 # TODO 4: Check resources sufficient?
 # TODO 5: Process coins
 # TODO 6: Check transaction successful?
 # TODO 7: Make Coffee
+
+# Runtime
+if verbose == 1:
+    print(resources)
+user_input = capture_user_input()
