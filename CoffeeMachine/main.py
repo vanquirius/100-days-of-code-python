@@ -43,18 +43,20 @@ resources = {
     "coffee": 100,
 }
 
-# TODO 1: Prompt user by asking "What would you like?"
+
+# Prompt user by asking "What would you like?"
 
 def capture_user_input():
-    # Promt user for input
-    user_input = lowercase(input("What would you like? (expresso, latte, cappuccino)"))
+    # Prompt user for input
+    raw_user_input = input("What would you like? (expresso, latte, cappuccino)")
     # Validate user input
-    if user_input not in ("expresso", "latte", "cappuccino", "off", "report"):
+    if raw_user_input not in ("expresso", "latte", "cappuccino", "off", "report"):
         print("Invalid option. Please choose again between expresso, latte and cappuccino.")
-        user_input = capture_user_input()
+        raw_user_input = capture_user_input()
     else:
-        print("You chose " + user_input + "!")
-        return user_input
+        print("You chose " + raw_user_input + "!")
+        return raw_user_input
+
 
 # TODO 2: Turn off Coffee Machine by entering "off"
 # TODO 3: Print report
