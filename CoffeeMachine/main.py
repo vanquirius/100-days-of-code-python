@@ -50,8 +50,8 @@ resources = {
     "coffee": 100,
 }
 
-# Start money at $ 2.5
-money = 2.5
+# Start money at $ 0
+money = 0
 
 
 # Requirement 1: Prompt user by asking "What would you like?"
@@ -214,8 +214,35 @@ def check_transaction(input_user_input, input_menu, input_deposit):
   return cost, transaction_success
 
 # Requirement 7: Make Coffee
-def make_drink(input_user_input):
+def make_drink(input_user_input, input_menu, input_resources):
+  # Deduct resources
+  water_needed = input_menu.get(input_user_input).get("ingredients").get("water")
+  if water_needed is None:
+      water_needed = 0
+  milk_needed = input_menu.get(input_user_input).get("ingredients").get("milk")
+  if milk_needed is None:
+      milk_needed = 0
+  coffee_needed = input_menu.get(input_user_input).get("ingredients").get("coffee")  
+  if coffee_needed is None:
+      coffee_needed = 0
+
+  water_available = input_resources.get("water")
+  milk_available = input_resources.get("milk")
+  coffee_available = input_resources.get("coffee")
+
+  water = water_available - water_needed
+  milk = milk_available - milk_needed
+  coffee = coffee_available - coffee_needed
+
+  updated_resources = {
+    "water": water,
+    "milk": milk,
+    "coffee": coffee,
+  }
+
   print("Here is your " + input_user_input + ". Enjoy!")
+
+  return updated_resources
 
 # Runtime
 print(colors.GREEN + "Coffee Machine" + colors.ENDC)
@@ -239,4 +266,4 @@ while(True):
         money_add, transaction_success = check_transaction(user_input, MENU, deposit)
         money = money + money_add
         if transaction_success == 1:
-          make_drink(user_input)
+          resources = make_drink(user_input, MENU, resources)
