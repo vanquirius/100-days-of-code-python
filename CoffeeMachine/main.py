@@ -130,57 +130,21 @@ def check_resources_sufficient(input_menu, input_resources, input_user_input):
 
 # Requirement 5: Process Coins
 def process_coins():
-  def collect_quarters():
-      quarters = 0
+  def collect_coins(input_cointype):
+      coins = 0
       try:
-          quarters = int(input("How many quarters?"))
+          coins = int(input("How many " + input_cointype + "?"))
       except:
-          collect_quarters()
-      if quarters is None:
-        quarters = 0
-      if quarters < 0:
-        collect_quarters()
-      return quarters
-  quarters = collect_quarters()
-
-  def collect_dimes():
-      dimes = 0
-      try:
-          dimes = int(input("How many dimes?"))
-      except:
-          collect_dimes()
-      if dimes is None:
-        dimes = 0
-      if dimes < 0:
-        collect_dimes()
-      return dimes
-  dimes = collect_dimes()
-
-  def collect_nickels():
-      nickels = 0
-      try:
-          nickels = int(input("How many nickels?"))
-      except:
-          collect_nickels()
-      if nickels is None:
-        nickels = 0
-      if nickels < 0:
-        collect_nickels()
-      return nickels
-  nickels = collect_nickels()
-
-  def collect_pennies():
-      pennies = 0
-      try:
-          pennies = int(input("How many pennies?"))
-      except:
-          collect_pennies()
-      if pennies is None:
-        pennies = 0
-      if pennies < 0:
-        collect_pennies()
-      return pennies
-  pennies = collect_pennies()
+          collect_coins(input_cointype)
+      if coins is None:
+        coins = 0
+      if coins < 0:
+        collect_coins(input_cointype)
+      return coins
+  quarters = collect_coins("quarters")
+  dimes = collect_coins("dimes")
+  nickels = collect_coins("nickels")
+  pennies = collect_coins("pennies")
 
   deposit = round(quarters*0.25 + dimes*0.10 + nickels*0.05 + pennies*0.01,2)
 
