@@ -112,4 +112,4 @@ while(True):
           if user_input == "espresso":
             coffeemachine.make_coffee(espresso)
           if user_input == "cappuccino":
-            coffeemachine.make_coffee(cappucino)
+            coffeemachine.make_coffee(cappuccino)
