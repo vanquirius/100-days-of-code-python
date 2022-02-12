@@ -9,12 +9,14 @@
 # print debug (must be 1 to print)
 verbose = 0
 
+
 class colors:
     RED = '\033[31m'
     GREEN = '\033[32m'
     YELLOW = '\033[33m'
     BLUE = '\033[34m'
     ENDC = '\033[m'
+
 
 # Data provided by the exercise
 
@@ -64,10 +66,10 @@ def capture_user_input():
         raw_user_input = capture_user_input()
     elif raw_user_input in ("off", "report"):
         if verbose == 1:
-          print("You chose the hidden option: " + raw_user_input + "!")
+            print("You chose the hidden option: " + raw_user_input + "!")
     else:
         if verbose == 1:
-          print("You chose " + raw_user_input + "!")
+            print("You chose " + raw_user_input + "!")
     return raw_user_input
 
 
@@ -128,85 +130,90 @@ def check_resources_sufficient(input_menu, input_resources, input_user_input):
         print("Resources are enough.")
     return enough_resources
 
+
 # Requirement 5: Process Coins
 def process_coins():
-  def collect_coins(input_cointype):
-      coins = 0
-      try:
-          coins = int(input("How many " + input_cointype + "?"))
-      except:
-          collect_coins(input_cointype)
-      if coins is None:
+    def collect_coins(input_cointype):
         coins = 0
-      if coins < 0:
-        collect_coins(input_cointype)
-      return coins
-  quarters = collect_coins("quarters")
-  dimes = collect_coins("dimes")
-  nickels = collect_coins("nickels")
-  pennies = collect_coins("pennies")
+        try:
+            coins = int(input("How many " + input_cointype + "?"))
+        except:
+            collect_coins(input_cointype)
+        if coins is None:
+            coins = 0
+        if coins < 0:
+            collect_coins(input_cointype)
+        return coins
 
-  deposit = round(quarters*0.25 + dimes*0.10 + nickels*0.05 + pennies*0.01,2)
+    quarters = collect_coins("quarters")
+    dimes = collect_coins("dimes")
+    nickels = collect_coins("nickels")
+    pennies = collect_coins("pennies")
 
-  if verbose == 1:
-    print("Deposited value is $" + str(deposit))
+    deposit = round(quarters * 0.25 + dimes * 0.10 + nickels * 0.05 + pennies * 0.01, 2)
 
-  return deposit
+    if verbose == 1:
+        print("Deposited value is $" + str(deposit))
+
+    return deposit
+
 
 # Requirement 6: Check transaction successful
 def check_transaction(input_user_input, input_menu, input_deposit):
-  # Get cost from menu
-  cost = input_menu.get(input_user_input).get("cost")
-  # Validate cost
-  if cost < 0 or cost is None:
-      raise ValueError("Invalid cost in menu, please verify.")
-  if verbose == 1:
-    print("Cost is : $" + str(cost))
-  # Process transaction
-  transaction_success = 1
-  if cost == input_deposit:
+    # Get cost from menu
+    cost = input_menu.get(input_user_input).get("cost")
+    # Validate cost
+    if cost < 0 or cost is None:
+        raise ValueError("Invalid cost in menu, please verify.")
     if verbose == 1:
-      print("Cost and deposit are the same, no change given.")
-      change = 0
-  elif cost > input_deposit:
-    transaction_success = 0
-    print("Sorry, that is not enough money. Money refunded.")
-  else:
-    change = round(input_deposit - cost, 2)
-    print("Change of $" + str(change) + " given out.")
-  
-  return cost, transaction_success
+        print("Cost is : $" + str(cost))
+    # Process transaction
+    transaction_success = 1
+    if cost == input_deposit:
+        if verbose == 1:
+            print("Cost and deposit are the same, no change given.")
+            change = 0
+    elif cost > input_deposit:
+        transaction_success = 0
+        print("Sorry, that is not enough money. Money refunded.")
+    else:
+        change = round(input_deposit - cost, 2)
+        print("Change of $" + str(change) + " given out.")
+
+    return cost, transaction_success
+
 
 # Requirement 7: Make Coffee
 def make_drink(input_user_input, input_menu, input_resources):
-  # Deduct resources
-  water_needed = input_menu.get(input_user_input).get("ingredients").get("water")
-  if water_needed is None:
-      water_needed = 0
-  milk_needed = input_menu.get(input_user_input).get("ingredients").get("milk")
-  if milk_needed is None:
-      milk_needed = 0
-  coffee_needed = input_menu.get(input_user_input).get("ingredients").get("coffee")  
-  if coffee_needed is None:
-      coffee_needed = 0
+    # Deduct resources
+    water_needed = input_menu.get(input_user_input).get("ingredients").get("water")
+    if water_needed is None:
+        water_needed = 0
+    milk_needed = input_menu.get(input_user_input).get("ingredients").get("milk")
+    if milk_needed is None:
+        milk_needed = 0
+    coffee_needed = input_menu.get(input_user_input).get("ingredients").get("coffee")
+    if coffee_needed is None:
+        coffee_needed = 0
 
-  water_available = input_resources.get("water")
-  milk_available = input_resources.get("milk")
-  coffee_available = input_resources.get("coffee")
+    water_available = input_resources.get("water")
+    milk_available = input_resources.get("milk")
+    coffee_available = input_resources.get("coffee")
 
-  water = water_available - water_needed
-  milk = milk_available - milk_needed
-  coffee = coffee_available - coffee_needed
+    water = water_available - water_needed
+    milk = milk_available - milk_needed
+    coffee = coffee_available - coffee_needed
 
-  updated_resources = {
-    "water": water,
-    "milk": milk,
-    "coffee": coffee,
-  }
+    updated_resources = {
+        "water": water,
+        "milk": milk,
+        "coffee": coffee,
+    }
 
-  print("Here is your " + input_user_input + ". Enjoy!")
+    print("Here is your " + input_user_input + ". Enjoy!")
 
-  return updated_resources
+    return updated_resources
+
 
 # Runtime
 print(colors.GREEN + "Coffee Machine" + colors.ENDC)
@@ -217,17 +224,17 @@ if verbose == 1:
     print(resources)
     print("Money: $" + str(money))
 
-while(True):
-  user_input = capture_user_input()
-  if user_input == "off":
-      turn_off_coffee_machine()
-  if user_input == "report":
-      generate_report(resources, money)
-  if user_input in ("expresso", "latte", "cappuccino"):
-      enough_resources = check_resources_sufficient(MENU, resources, user_input)
-      if enough_resources == 1:
-        deposit = process_coins()
-        money_add, transaction_success = check_transaction(user_input, MENU, deposit)
-        money = money + money_add
-        if transaction_success == 1:
-          resources = make_drink(user_input, MENU, resources)
+while True:
+    user_input = capture_user_input()
+    if user_input == "off":
+        turn_off_coffee_machine()
+    if user_input == "report":
+        generate_report(resources, money)
+    if user_input in ("expresso", "latte", "cappuccino"):
+        enough_resources = check_resources_sufficient(MENU, resources, user_input)
+        if enough_resources == 1:
+            deposit = process_coins()
+            money_add, transaction_success = check_transaction(user_input, MENU, deposit)
+            money = money + money_add
+            if transaction_success == 1:
+                resources = make_drink(user_input, MENU, resources)
