@@ -1,4 +1,4 @@
-# 100 Days of Code - The Complete Python Bootcamp for 2022 - Snake Game - Day 22
+# 100 Days of Code - The Complete Python Bootcamp for 2022 - Pong Game - Day 22
 
 These are my solutions for the course below:<br>
 https://www.udemy.com/course/100-days-of-code/<br>
