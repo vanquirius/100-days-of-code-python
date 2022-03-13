@@ -16,7 +16,7 @@
 # Hint3: THis method will help you: https://www.w3schools.com/python/ref_string_strip.asp
 
 def read_names():
-    with open("./Input/Names/invited_names.txt", mode="r") as f:
+    with open("Input/Names/invited_names.txt", mode="r") as f:
         names = f.readlines()
         names = [w.replace('\n', '') for w in names]
         print("Name list:")
@@ -25,7 +25,7 @@ def read_names():
 
 
 def import_starting_letter():
-    with open("./Input/Letters/starting_letter.txt", mode="r") as f:
+    with open("Input/Letters/starting_letter.txt", mode="r") as f:
         letter = f.read()
         print("Letter format:")
         print(letter)
