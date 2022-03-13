@@ -18,7 +18,7 @@ Day 27 - Miles to Kilometer<br>
 Day 28 - Pomodoro Timer<br>
 <br>
 TODO:<br>
-Day 29 - Password Manager GUI<br>
+Day 29 - MyPass - Password Manager<br>
 Day 30<br>
 Day 31 - Flash Card App<br>
 Day 32<br>
