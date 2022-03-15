@@ -68,27 +68,26 @@ def save():
             website_entry.delete(0, END)
             password_entry.delete(0, END)
 
+# ---------------------------- SEARCH PASSWORD ------------------------------- #
 def search_data():
-    # TODO: This function is work in progress
     website, email, password = get_field_data()
 
     try:
         with open(FILENAME, "r") as data_file:
             # Reading old data
             data = json.load(data_file)
-        #for i in data:
-        #    if i == website:
-        #        print(data.values())
+    except FileNotFoundError:
+        messagebox.showinfo(title="Data file not found", message="No data file found.")
 
-        loaded_email = "aaa"
-        loaded_password = "bbb"
-
+    else:
         # Show results in a pop-up
-        print("ok")
-        email_entry.config(text=loaded_email)
-        password_entry.config(text=loaded_password)
-    except:
-        pass
+        if website in data:
+            loaded_email = data[website]["email"]
+            loaded_password = data[website]["password"]
+            show_results = "E-Mail/Username: " + str(loaded_email) + "\n Password: " + str(loaded_password)
+            messagebox.showinfo(title=website, message=show_results)
+        else:
+            messagebox.showinfo(title="Not found", message="Unable to find!")
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -110,8 +109,8 @@ password_label = Label(text="Password:")
 password_label.grid(row=3, column=0)
 
 #Entries
-website_entry = Entry(width=35)
-website_entry.grid(row=1, column=1, columnspan=2)
+website_entry = Entry(width=21)
+website_entry.grid(row=1, column=1)
 website_entry.focus()
 email_entry = Entry(width=35)
 email_entry.grid(row=2, column=1, columnspan=2)
@@ -124,7 +123,7 @@ generate_password_button = Button(text="Generate Password", command=generate_pas
 generate_password_button.grid(row=3, column=2)
 add_button = Button(text="Add", width=36, command=save)
 add_button.grid(row=4, column=1, columnspan=2)
-search_button = Button(text="Search", command=search_data)
-search_button.grid(row=1, column=3)
+search_button = Button(text="Search", command=search_data, width=13)
+search_button.grid(row=1, column=2)
 
 window.mainloop()
