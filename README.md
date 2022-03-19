@@ -19,9 +19,9 @@ Day 28 - Pomodoro Timer<br>
 Day 29 - MyPass - Password Manager<br>
 Day 30 - MyPass 2 - Password Manager<br>
 Day 31 - Flash Card App<br>
+Day 32 - Automated Birthday Wisher<br>
 <br>
 TODO:<br>
-Day 32<br>
 Day 33<br>
 Day 34 - GUI Quiz App<br>
 Day 35<br>

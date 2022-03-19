@@ -1,0 +1,19 @@
+[NAME],
+
+Tenha um feliz aniversário cheio de sorrisos e gargalhadas, repleto de paz, amor e muita alegria.
+Parabéns por mais um ano de vida!
+
+Marcelo Góes
+
+------------------------------------------------------------------------------------------------
+
+[NAME],
+
+Have a happy birthday full of smile and laughter, peace, love and joy.
+Congratulations on yet another year!
+
+Marcelo Góes
+
+Happy Birthday Bot
+Source code available at:
+https://github.com/vanquirius/100-days-of-code-python

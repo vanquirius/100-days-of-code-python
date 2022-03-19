@@ -1,0 +1,17 @@
+[NAME],
+
+Feliz Aniversário! Mais um ano que passou e outro que vai começar. Aproveite ao máximo e que nunca lhe falte felicidade, amor, saúde e amizade.
+
+Marcelo Góes
+
+------------------------------------------------------------------------------------------------
+
+[NAME],
+
+Happy Birthday! Another year is over and a new one begins. Enjoy to the fullest with happiness, love, good health and friendship.
+
+Marcelo Góes
+
+Happy Birthday Bot
+Source code available at:
+https://github.com/vanquirius/100-days-of-code-python
