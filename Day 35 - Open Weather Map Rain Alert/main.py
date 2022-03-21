@@ -20,18 +20,20 @@ auth_token = "######"
 twilio_phone_number = "######"
 to_phone_number = "######"
 
+
 def send_sms(input_account_sid, input_auth_token, input_twilio_phone_number, input_to_phone_number):
     client = Client(input_account_sid, input_auth_token)
 
     message = client.messages \
-                    .create(
-                         body="Bring an umbrella",
-                         from_=input_twilio_phone_number,
-                         to=input_to_phone_number
-                     )
+        .create(
+        body="Bring an umbrella",
+        from_=input_twilio_phone_number,
+        to=input_to_phone_number
+    )
 
     print(message.sid)
     print(message.status)
+
 
 def get_owp_onecallapi():
     # Call One Call API from Open Weather Maps
@@ -44,7 +46,7 @@ def get_owp_onecallapi():
     }
 
     response = requests.get(url="https://api.openweathermap.org/data/2.5/onecall", params=parameters)
-    # print("Reponse code: " + str(response.status_code))
+    # print("Response code: " + str(response.status_code))
     response.raise_for_status()
     data = response.json()
 
@@ -59,5 +61,6 @@ def get_owp_onecallapi():
     if bad_weather:
         print("Bring an umbrella")
         send_sms(account_sid, auth_token, twilio_phone_number, to_phone_number)
+
 
 get_owp_onecallapi()
