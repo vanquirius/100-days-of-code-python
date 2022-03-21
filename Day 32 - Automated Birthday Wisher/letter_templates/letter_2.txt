@@ -1,17 +1,17 @@
-[NAME],
-
-Feliz Aniversário! Que seja um dia inesquecível e o início de um novo ano na sua vida cheio de felicidade e muitas realizações.
-
-Marcelo Góes
-
-------------------------------------------------------------------------------------------------
-
-[NAME],
-
-Happy Birthday! Let the day be unforgettable and the beginning of a new year full of happiness and accomplishment.
-
-Marcelo Góes
-
-Happy Birthday Bot
-Source code available at:
-https://github.com/vanquirius/100-days-of-code-python/tree/main/Day%2032%20-%20Automated%20Birthday%20Wisher
+[NAME],<br>
+<br>
+Feliz Aniversário! Que seja um dia inesquecível e o início de um novo ano na sua vida cheio de felicidade e muitas realizações.<br>
+<br>
+Marcelo Góes<br>
+<br>
+------------------------------------------------------------------------------------------------<br>
+<br>
+[NAME],<br>
+<br>
+Happy Birthday! Let the day be unforgettable and the beginning of a new year full of happiness and accomplishment.<br>
+<br>
+Marcelo Góes<br>
+<br>
+Happy Birthday Bot<br>
+Source code available at:<br>
+https://github.com/vanquirius/100-days-of-code-python/tree/main/Day%2032%20-%20Automated%20Birthday%20Wisher<br>

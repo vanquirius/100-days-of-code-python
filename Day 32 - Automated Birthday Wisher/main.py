@@ -40,12 +40,13 @@ def send_email(input_smtp_server=smtp_server, input_smtp_port=smtp_port, input_m
         connection.sendmail(from_addr=my_email, to_addrs=input_to_email, msg=input_send_msg)
 
 
-def send_grid_email(input_mail_subject="", input_send_msg="", input_to_email="", input_my_email=my_email):
+def send_grid_email(input_mail_subject, input_send_msg, input_to_email, input_my_email):
     message = Mail(
         from_email=input_my_email,
         to_emails=input_to_email,
-        subject=input_mail_subject,
-        html_content=input_send_msg)
+        subject=str(input_mail_subject),
+        html_content=str(input_send_msg).encode("utf_8").decode("unicode_escape")
+    )
     try:
         sg = SendGridAPIClient(sendGridToken)
         response = sg.send(message)
@@ -72,7 +73,7 @@ def select_birthday():
         letter = "letter_templates/letter_" + str(random.randint(1, 3)) + ".txt"
         with open(letter, "r", encoding="utf-8") as f:
             content = f.read()
-            content = content.replace("[NAME]", birthday_person["name"]).encode('utf-8')
+            content = content.replace("[NAME]", birthday_person["name"])
             subject = "Feliz aniversário! Happy Birthday!"
             send_msg = ("Subject:" + str(subject) + "\n\n" + str(content)).encode('utf-8')
             address = birthday_person["email"] + "," + cc_email
