@@ -24,7 +24,7 @@ Day 33 - ISS Overhead Notifier<br>
 Day 34 - Quizzler App<br>
 <br>
 TODO:<br>
-Day 35 - <br>
+Day 35 - Open Weather Map Rain Alert<br>
 Day 36 - Stock Trading News Alert<br>
 Day 37<br>
 Day 38<br>
