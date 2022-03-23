@@ -24,7 +24,7 @@ SENDGRID_ENABLED = 1
 # Credentials
 my_email = "######"
 my_password = "######"  # if using SMTP
-sendGridToken = "######"  # if using Send Gril
+sendGridToken = "######"  # if using Send Grid
 
 # E-Mail server settings
 smtp_server = "smtp.gmail.com"  # if using SMTP
