@@ -23,9 +23,9 @@ Day 32 - Automated Birthday Wisher<br>
 Day 33 - ISS Overhead Notifier<br>
 Day 34 - Quizzler App<br>
 Day 35 - Open Weather Map Rain Alert<br>
+Day 36 - Stock Trading News Alert<br>
 <br>
 TODO:<br>
-Day 36 - Stock Trading News Alert<br>
 Day 37<br>
 Day 38<br>
 Day 39 - Flight Deal Finder<br>

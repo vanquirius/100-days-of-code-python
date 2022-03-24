@@ -8,11 +8,11 @@
 
 import requests
 from datetime import datetime
-from twilio.rest import Client
+import twilio_sms
 
 STOCK = "VT"
 COMPANY_NAME = "Vanguard Total World Stock Index ETF"
-DELTA_WARNING = (5 / 100)
+DELTA_WARNING = (1 / 100)
 
 # API keys for Alpha Vantage and Twilio
 alpha_vantage_api_key = "######"
@@ -51,8 +51,6 @@ def get_stock_data():
     return delta_stock_price
 
 
-# get_stock_data()
-
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
 
@@ -74,32 +72,12 @@ def get_news():
 
     # Filter out data
     data = data["articles"]
-    articles = []
-    for i in range(0, 2):
-        add_article = ""
-        try:
-            add_article = data[i]["title"]
-        except IndexError:
-            pass
-        articles.append(add_article)
-    print(articles)
-    return articles
+    data = data[:3]
+    return data
 
-
-get_news()
 
 ## STEP 3: Use https://www.twilio.com
 # Send a separate message with the percentage change and each article's title and description to your phone number.
-
-# if abs(delta_stock_price) > DELTA_WARNING:
-#    print("Variation above " + str(DELTA_WARNING * 100) + "% - Get News")
-
-# else:
-#    print("Variation below " + str(DELTA_WARNING * 100) + "% - Do not get news")
-
-#    return 0
-
-
 # Optional: Format the SMS message like this:
 """
 TSLA: 🔺2%
@@ -110,3 +88,21 @@ or
 Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
 Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
 """
+
+def check_delta_and_alert():
+    delta_stock_price = get_stock_data()
+    if abs(delta_stock_price) > DELTA_WARNING:
+        print("Variation above " + str(DELTA_WARNING * 100) + "% - Get News")
+        articles = get_news()
+        formatted_articles = [f"Title: {i['title']}. \nBrief: {i['description']}" for i in articles]
+        # Set sign for SMS
+        sign = "🔺"
+        if delta_stock_price < 0:
+            sign = "🔻"
+        for i in formatted_articles:
+            message = str(STOCK) + ":" + str(sign) + str(round(abs(delta_stock_price) * 100, 1)) + "%\n" + i
+            twilio_sms.send_sms(account_sid, auth_token, twilio_phone_number, to_phone_number, message)
+    else:
+        print("Variation below " + str(DELTA_WARNING * 100) + "% - Do not get news")
+
+check_delta_and_alert()
