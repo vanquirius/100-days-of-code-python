@@ -10,6 +10,7 @@ import requests
 from datetime import datetime
 import smtplib
 import time
+import send_email
 
 # Coordinates for São Paulo, SP, Brazil
 MY_LAT = -23.550520
@@ -18,20 +19,8 @@ TOLERANCE = 5
 
 # Credentials
 my_email = "######"
-my_password = "######"
-
-# E-Mail server settings
-smtp_server = "smtp.gmail.com"
-smtp_port = "587"
-
-
-# Connect and send
-def send_email(input_smtp_server=smtp_server, input_smtp_port=smtp_port, input_my_email=my_email,
-               input_my_password=my_password, input_to_email="", input_send_msg=""):
-    with smtplib.SMTP(smtp_server, smtp_port) as connection:
-        connection.starttls()
-        connection.login(user=my_email, password=my_password)
-        connection.sendmail(from_addr=my_email, to_addrs=input_to_email, msg=input_send_msg)
+my_password = "######" # If using SMPT
+sendGridToken = "######"  # if using Send Grid
 
 
 def get_iss_position():
@@ -86,12 +75,20 @@ def notify_iss_overhead():
         if (iss_latitude > MY_LAT - TOLERANCE) and (iss_latitude < MY_LAT + TOLERANCE):
             # check if longitude in range
             if (iss_longitude > MY_LONG - TOLERANCE) and (iss_longitude < MY_LONG + TOLERANCE):
-                print("ISS is overhead")
-                send_email(input_to_email=my_email, input_send_msg="Subject:ISS is overhead")
+                subject = "ISS is overhead"
+                print(subject)
+                if send_email.sendgrid_enabled == 1:
+                    send_email.send_grid_email(input_mail_subject=subject, input_send_msg=" ",
+                                               input_to_email=my_email,
+                                               input_my_email=my_email, input_sendGridToken=sendGridToken)
+                else:
+                    send_email.send_email(input_to_email=my_email, input_send_msg="Subject:" + subject,
+                                          input_my_email=my_email, input_my_password=my_password)
                 return True
 
     print("ISS is not overhead")
     return False
+
 
 # Loop
 while True:
