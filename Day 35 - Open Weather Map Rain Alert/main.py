@@ -7,7 +7,7 @@
 # Day 35 - Open Weather Map Rain Alert
 
 import requests
-from twilio.rest import Client
+import twilio_sms
 
 # Coordinates for São Paulo, SP, Brazil
 MY_LAT = -23.550520
@@ -19,20 +19,6 @@ account_sid = "######"
 auth_token = "######"
 twilio_phone_number = "######"
 to_phone_number = "######"
-
-
-def send_sms(input_account_sid, input_auth_token, input_twilio_phone_number, input_to_phone_number):
-    client = Client(input_account_sid, input_auth_token)
-
-    message = client.messages \
-        .create(
-        body="Bring an umbrella",
-        from_=input_twilio_phone_number,
-        to=input_to_phone_number
-    )
-
-    print(message.sid)
-    print(message.status)
 
 
 def get_owp_onecallapi():
@@ -59,8 +45,11 @@ def get_owp_onecallapi():
 
     # Print "bring an umbrella" if there is bad weather ahead
     if bad_weather:
-        print("Bring an umbrella")
-        send_sms(account_sid, auth_token, twilio_phone_number, to_phone_number)
+        message = "Bad weather! Bring an umbrella"
+        print(message)
+        twilio_sms.send_sms(account_sid, auth_token, twilio_phone_number, to_phone_number, message)
+    else:
+        print("Weather is good!")
 
 
 get_owp_onecallapi()
