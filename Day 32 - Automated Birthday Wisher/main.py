@@ -8,53 +8,19 @@
 
 ##################### Extra Hard Starting Project ######################
 
-import smtplib
 from datetime import datetime
 import pandas
 import random
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+import send_email
 
 # Constants
 DATAFILE = "birthdays.csv"
 cc_email = "######"
-# Set as 1 to choose Send Grid over SMTP
-SENDGRID_ENABLED = 1
 
 # Credentials
 my_email = "######"
-my_password = "######"  # if using SMTP
+my_password = "######"  # If using SMPT
 sendGridToken = "######"  # if using Send Grid
-
-# E-Mail server settings
-smtp_server = "smtp.gmail.com"  # if using SMTP
-smtp_port = "587"  # if using SMTP
-
-
-# Connect and send
-def send_email(input_smtp_server=smtp_server, input_smtp_port=smtp_port, input_my_email=my_email,
-               input_my_password=my_password, input_to_email="", input_send_msg=""):
-    with smtplib.SMTP(smtp_server, smtp_port) as connection:
-        connection.starttls()
-        connection.login(user=my_email, password=my_password)
-        connection.sendmail(from_addr=my_email, to_addrs=input_to_email, msg=input_send_msg)
-
-
-def send_grid_email(input_mail_subject, input_send_msg, input_to_email, input_my_email):
-    message = Mail(
-        from_email=input_my_email,
-        to_emails=input_to_email,
-        subject=str(input_mail_subject),
-        html_content=str(input_send_msg).encode("utf_8").decode("unicode_escape")
-    )
-    try:
-        sg = SendGridAPIClient(sendGridToken)
-        response = sg.send(message)
-        print(response.status_code)
-        print(response.body)
-        print(response.headers)
-    except Exception as e:
-        print(e.message)
 
 
 def select_birthday():
@@ -66,7 +32,8 @@ def select_birthday():
     today = datetime.now()
     today_tuple = (today.month, today.day)
 
-    # 3. If step 2 is true, pick a random letter from letter templates and replace the [NAME] with the person's actual name from birthdays.csv
+    # 3. If step 2 is true, pick a random letter from letter templates and replace the [NAME] with the person's
+    # actual name from birthdays.csv
     if today_tuple in birthdays_dict:
         birthday_person = birthdays_dict[today_tuple]
         # Select random letter
@@ -78,10 +45,12 @@ def select_birthday():
             send_msg = ("Subject:" + str(subject) + "\n\n" + str(content)).encode('utf-8')
             address = birthday_person["email"] + "," + cc_email
             # 4. Send the letter generated in step 3 to that person's email address.
-            if SENDGRID_ENABLED == 1:
-                send_grid_email(input_mail_subject=subject, input_send_msg=content, input_to_email=address, input_my_email=my_email)
+            if send_email.sendgrid_enabled == 1:
+                send_email.send_grid_email(input_mail_subject=subject, input_send_msg=content, input_to_email=address,
+                                           input_my_email=my_email, input_sendGridToken=sendGridToken)
             else:
-                send_email(input_to_email=address, input_send_msg=send_msg)
+                send_email.send_email(input_to_email=address, input_send_msg=send_msg, input_my_email=my_email,
+                                      input_my_password=my_password)
 
 
 select_birthday()
