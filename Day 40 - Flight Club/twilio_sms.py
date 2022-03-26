@@ -4,7 +4,7 @@
 # 2022-03-25
 
 # 100 Days of Code: The Complete Python Pro Bootcamp for 2022
-# Day 39 - Flight Deal Finder
+# Day 40 - Flight Club
 
 from twilio.rest import Client
 
