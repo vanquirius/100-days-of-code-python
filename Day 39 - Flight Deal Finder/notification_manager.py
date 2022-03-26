@@ -6,6 +6,15 @@
 # 100 Days of Code: The Complete Python Pro Bootcamp for 2022
 # Day 39 - Flight Deal Finder
 
+# API keys for Twilio
+account_sid = "######"
+auth_token = "######"
+twilio_phone_number = "######"
+to_phone_number = "######"
+
+import twilio_sms
+
 class NotificationManager:
-    #This class is responsible for sending notifications with the deal flight details.
-    pass
+
+    def notify_sms(self, message):
+        twilio_sms.send_sms(account_sid, auth_token, twilio_phone_number, to_phone_number, message)

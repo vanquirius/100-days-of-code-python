@@ -8,8 +8,9 @@
 
 import requests
 
-SHEETY_PRICES_ENDPOINT = YOUR ENDPOINT HERE
-
+SHEETY_PRICES_ENDPOINT = "https://api.sheety.co/######/flightDeals/prices"
+sheety_api_key = "######"
+headers = {"Authorization": "Bearer " + sheety_api_key}
 
 class DataManager:
 
@@ -18,7 +19,7 @@ class DataManager:
 
     def get_destination_data(self):
         # 2. Use the Sheety API to GET all the data in that sheet and print it out.
-        response = requests.get(url=SHEETY_PRICES_ENDPOINT)
+        response = requests.get(url=SHEETY_PRICES_ENDPOINT, headers=headers)
         data = response.json()
         self.destination_data = data["prices"]
         # 3. Try importing pretty print and printing the data out again using pprint() to see it formatted.
@@ -36,6 +37,7 @@ class DataManager:
             }
             response = requests.put(
                 url=f"{SHEETY_PRICES_ENDPOINT}/{city['id']}",
-                json=new_data
+                json=new_data,
+                headers=headers
             )
             print(response.text)
