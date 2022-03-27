@@ -31,9 +31,9 @@ Day 39 - Flight Deal Finder<br>
 Day 40 - Flight Club<br>
 Day 41 to 44 - Introduction to HTML and CSS, skipped<br>
 Day 45 - Beautiful Soup Web Scraping<br>
+Day 46 - Billboard Top 100 and Spotify<br>
 <br>
 TODO:<br>
-Day 46 - Billboard Top 100 and Spotify<br>
 Day 47<br>
 Day 48<br>
 Day 49<br>
