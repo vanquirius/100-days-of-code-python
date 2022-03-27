@@ -18,8 +18,8 @@ DATAFILE = "birthdays.csv"
 cc_email = "######"
 
 # Credentials
-my_email = "######@gmail.com"
-my_password = "######" # If using SMPT
+my_email = "######"
+my_password = "######"  # If using SMPT
 sendGridToken = "######"  # if using Send Grid
 
 
