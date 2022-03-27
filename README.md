@@ -30,9 +30,9 @@ Day 38 - Exercise Tracking Google Sheets<br>
 Day 39 - Flight Deal Finder<br>
 Day 40 - Flight Club<br>
 Day 41 to 44 - Introduction to HTML and CSS, skipped<br>
+Day 45 - Beautiful Soup Web Scraping<br>
 <br>
 TODO:<br>
-Day 45<br>
 Day 46<br>
 Day 47<br>
 Day 48<br>
