@@ -29,12 +29,9 @@ Day 37 - Habit Tracker<br>
 Day 38 - Exercise Tracking Google Sheets<br>
 Day 39 - Flight Deal Finder<br>
 Day 40 - Flight Club<br>
+Day 41 to 44 - Introduction to HTML and CSS, skipped<br>
 <br>
 TODO:<br>
-Day 41 - Introduction to HTML<br>
-Day 42<br>
-Day 43<br>
-Day 44<br>
 Day 45<br>
 Day 46<br>
 Day 47<br>
