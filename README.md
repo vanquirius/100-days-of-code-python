@@ -2,7 +2,8 @@
 These are my solutions for the course below:<br>
 https://www.udemy.com/course/100-days-of-code/<br>
 <br>
-DONE:<BR>
+DONE:<br>
+Day 1 to Day 14 - Introduction to Python, skipped<br>
 Day 15 - Coffee Machine<br>
 Day 16 - Coffee Machine OOP version<br>
 Day 17 - Quiz Game<br>
@@ -30,7 +31,7 @@ Day 39 - Flight Deal Finder<br>
 Day 40 - Flight Club<br>
 <br>
 TODO:<br>
-Day 41<br>
+Day 41 - Introduction to HTML<br>
 Day 42<br>
 Day 43<br>
 Day 44<br>
