@@ -35,7 +35,7 @@ Day 46 - Billboard Top 100 and Spotify<br>
 Day 47 - Amazon Price Tracker<br>
 <br>
 TODO:<br>
-Day 48<br>
+Day 48 - Cookie Clicker<br>
 Day 49<br>
 Day 50 - Auto Tinder Swiping Bot<br>
 Day 51 - Internet Speed Twitter Compliant Bot<br>

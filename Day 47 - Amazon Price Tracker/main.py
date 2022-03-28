@@ -13,7 +13,7 @@ import send_email
 
 # Credentials for E-Mail
 my_email = "######"
-my_password = "######" # If using SMPT
+my_password = "######"  # If using SMPT
 sendGridToken = "######"  # if using Send Grid
 
 target_price = 75
