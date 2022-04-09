@@ -7,9 +7,8 @@
 # Day 48 - Cookie Clicker
 
 from selenium import webdriver
-
-# Path for Selenium Chrome Driver
-chrome_driver_path = "D:\\Users\\Marcelo\\Documents\\Code\\chromedriver.exe"
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 # Fake credentials to test
 first_name = "abc"
@@ -17,7 +16,8 @@ last_name = "efg"
 email = "abc@efg.com"
 
 # Start Chrome Driver
-driver = webdriver.Chrome(chrome_driver_path)
+s=Service(ChromeDriverManager().install())
+driver = webdriver.Chrome(service=s)
 
 url = "https://secure-retreat-92358.herokuapp.com/"
 driver.get(url)

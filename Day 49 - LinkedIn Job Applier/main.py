@@ -1,7 +1,7 @@
 # coding=utf-8
 # Marcelo Ambrosio de Goes
 # marcelogoes@gmail.com
-# 2022-04-05
+# 2022-04-09
 
 # 100 Days of Code: The Complete Python Pro Bootcamp for 2022
 # Day 49 - LinkedIn Job Applier
@@ -10,21 +10,22 @@
 login = "######"
 password = "######"
 
-# Path for Selenium Chrome Driver
-chrome_driver_path = "######\\chromedriver.exe"
-
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+#from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
 import time
 
 # Start Chrome Driver
-driver = webdriver.Chrome(chrome_driver_path)
+s=Service(ChromeDriverManager().install())
+driver = webdriver.Chrome(service=s)
 driver.maximize_window()
 
 # LinkedIn URL data
 linkedin_url = "https://www.linkedin.com/"
 job_search_url = "jobs/search/?"
-easy_apply = "f_AL=true"  # Easy Apply
+easy_apply = "f_AL=true"  # Easy Apply - this has to be enabled for this program
 job_title = "keywords=head%20of%20product"  # Head of Product
 location = "location=Orlando"  # Orlando
 published_time = "f_TPR=r2592000"  # last month
@@ -33,64 +34,52 @@ search_url = linkedin_url + job_search_url + easy_apply + "&" + job_title + "&" 
 
 # Go to LinkedIn Homepage
 driver.get(linkedin_url)
+print("Going to " + linkedin_url)
 
-# Enter credentials
-time.sleep(1)
-login_box = driver.find_element_by_id("session_key")
+# Enter credentials in the login page
+time.sleep(2)
+login_box = driver.find_element(By.ID, "session_key")
 login_box.send_keys(login)
-password_box = driver.find_element_by_id("session_password")
+password_box = driver.find_element(By.ID, "session_password")
 password_box.send_keys(password)
-signin_button = driver.find_element_by_class_name("sign-in-form__submit-button")
+signin_button = driver.find_element(By.CLASS_NAME, "sign-in-form__submit-button")
 signin_button.click()
+print("Credentials provided")
 
 # Wait 30 seconds for two-factor authentication
 time.sleep(30)
+print("Assuming two-factor authentication was successful")
 
 # Go to job search page
 driver.get(search_url)
+time.sleep(2)
+print("Looking for job list")
 
 # Get all jobs available
-jobs_available = driver.find_elements_by_css_selector(".job-card-container--clickable")
+jobs_available = driver.find_elements(By.CSS_SELECTOR, ".job-card-container--clickable .job-card-container__link")
+print("Obtaining job list")
 
+# Application routine for jobs available
 for i in jobs_available:
     # Click on each job
     i.click()
+    print("Clicked on job from job list")
     time.sleep(2)
 
-    # Try to locate the apply button, if can't locate then skip the job.
-    try:
-        apply_button = driver.find_element_by_css_selector(".jobs-s-apply button")
-        apply_button.click()
-        time.sleep(5)
+    # Click on Easy Apply
+    easy_apply_button = driver.find_element(By.CSS_SELECTOR, "div.jobs-apply-button--top-card span.artdeco-button__text")
+    easy_apply_button.click()
+    print("Clicked on Easy Apply")
+    time.sleep(2)
 
-        submit_button = driver.find_element_by_css_selector("footer button")
-
-        # If the submit_button is a "Next" button, then this is a multi-step application, so skip.
+    # Try to press on next/review/submit button 5 times
+    for i in range(1, 5):
         try:
-            if submit_button.get_attribute("data-control-name") == "continue_unify":
-                close_button = driver.find_element_by_class_name("artdeco-modal__dismiss")
-                close_button.click()
-                time.sleep(2)
-                discard_button = driver.find_elements_by_class_name("artdeco-modal__confirm-dialog-btn")[1]
-                discard_button.click()
-                print("Complex application, skipped.")
-                continue
-            else:
-                submit_button.click()
-        except StaleElementReferenceException:
-            discard_button = driver.find_elements_by_class_name("artdeco-modal__confirm-dialog-btn")[1]
-            discard_button.click()
-            print("Complex application, skipped.")
-
-        # Once application completed, close the pop-up window.
-        time.sleep(2)
-        close_button = driver.find_element_by_xpath("/html/body/div[3]/div[2]/div/div[3]/button[1]/span")
-        close_button.click()
-
-    # If already applied to job or job is no longer accepting applications, then skip.
-    except NoSuchElementException:
-        print("No application button, skipped.")
-        continue
+            print("Trying to click next/review/submit")
+            next_button = driver.find_element(By.CSS_SELECTOR, "div.display-flex span.artdeco-button__text")
+            time.sleep(2)
+        except:
+            pass
 
 time.sleep(5)
 driver.quit()

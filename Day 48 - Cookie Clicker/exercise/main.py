@@ -7,13 +7,12 @@
 # Day 48 - Cookie Clicker
 
 from selenium import webdriver
-from datetime import datetime
-
-# Path for Selenium Chrome Driver
-chrome_driver_path = "D:\\Users\\Marcelo\\Documents\\Code\\chromedriver.exe"
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 # Start Chrome Driver
-driver = webdriver.Chrome(chrome_driver_path)
+s=Service(ChromeDriverManager().install())
+driver = webdriver.Chrome(service=s)
 
 url = "https://www.python.org"
 driver.get(url)

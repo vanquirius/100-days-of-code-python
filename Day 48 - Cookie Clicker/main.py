@@ -6,9 +6,6 @@
 # 100 Days of Code: The Complete Python Pro Bootcamp for 2022
 # Day 48 - Cookie Clicker
 
-# Path for Selenium Chrome Driver
-chrome_driver_path = "######\\chromedriver.exe"
-
 # initial wait time (seconds) before attempting to upgrade/buy items
 wait_time = 0.1
 # Progressive increase based on price
@@ -26,12 +23,15 @@ wait_time_vs_price_dictionary = {
 }
 
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.common.exceptions import NoSuchElementException
 import time
 import random
 
 # Start Chrome Driver
-driver = webdriver.Chrome(chrome_driver_path)
+s=Service(ChromeDriverManager().install())
+driver = webdriver.Chrome(service=s)
 
 # Go to Cookie Clicker game
 url = "https://orteil.dashnet.org/cookieclicker/"
