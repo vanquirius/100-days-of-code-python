@@ -33,10 +33,10 @@ Day 41 to 44 - Introduction to HTML and CSS, skipped<br>
 Day 45 - Beautiful Soup Web Scraping<br>
 Day 46 - Billboard Top 100 and Spotify<br>
 Day 47 - Amazon Price Tracker<br>
+Day 48 - Cookie Clicker<br>
 <br>
 TODO:<br>
-Day 48 - Cookie Clicker<br>
-Day 49<br>
+Day 49 - LinkedIn Job Applier<br>
 Day 50 - Auto Tinder Swiping Bot<br>
 Day 51 - Internet Speed Twitter Compliant Bot<br>
 Day 52 - Instagram Follower Bot<br>
