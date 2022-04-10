@@ -35,12 +35,12 @@ Day 46 - Billboard Top 100 and Spotify<br>
 Day 47 - Amazon Price Tracker<br>
 Day 48 - Cookie Clicker<br>
 Day 51 - Internet Speed Twitter Complaint Bot<br>
+Day 52 - Instagram Follower Bot<br>
+Day 53 - SF Renting Research<br>
 <br>
 TODO:<br>
 Day 49 - LinkedIn Job Applier - incomplete<br>
 Day 50 - Auto Tinder Swiping Bot - skipped<br>
-Day 52 - Instagram Follower Bot<br>
-Day 53<br>
 Day 54<br>
 Day 55<br>
 Day 56<br>
