@@ -103,7 +103,7 @@ class InternetSpeedTwitterBot:
         # Post on twitter
         message = "@ClaroBrasil, sou um bot. Meu dono contratou pacote com " + \
             str(input_promised_down) + " megas de download e " + str(input_promised_up) + \
-            " megas de upload. O SpeedTest está mostrando " + str(input_down_speed) + " mega de download e " + \
+            " megas de upload. O SpeedTest está mostrando " + str(input_down_speed) + " megas de download e " + \
             str(input_up_speed) + " megas de upload."
         print(message)
 
