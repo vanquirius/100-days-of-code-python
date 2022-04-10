@@ -25,18 +25,19 @@ wait_time_vs_price_dictionary = {
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 import time
 import random
 
 # Start Chrome Driver
-s=Service(ChromeDriverManager().install())
+s = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=s)
+driver.maximize_window()
 
 # Go to Cookie Clicker game
 url = "https://orteil.dashnet.org/cookieclicker/"
 driver.get(url)
-driver.maximize_window()
 
 # Find cookie
 big_cookie = driver.find_element_by_id("bigCookie")
@@ -78,7 +79,7 @@ while True:
 
         # Perform affordable upgrades - all enabled elements are affordable, no need to check
         try:
-            upgrades = driver.find_elements_by_css_selector("div.crate.upgrade.enabled")
+            upgrades = driver.find_elements(By.CSS_SELECTOR, "div.crate.upgrade.enabled")
             for i in upgrades:
                 try:
                     i.click()
@@ -88,8 +89,8 @@ while True:
             pass
 
         # Buy store items - all enabled elements are affordable, no need to check
-        store_elements = driver.find_elements_by_css_selector("div.product.unlocked.enabled")
-        store_prices = driver.find_elements_by_css_selector("div.product.unlocked.enabled div.content span.price")
+        store_elements = driver.find_elements(By.CSS_SELECTOR, "div.product.unlocked.enabled")
+        store_prices = driver.find_elements(By.CSS_SELECTOR, "div.product.unlocked.enabled div.content span.price")
 
         item_elements = []
         for i in store_elements:
@@ -126,7 +127,7 @@ while True:
     # After 5 minutes, issue report
     if time.time() > five_min:
         if report:
-            cps = driver.find_element_by_css_selector("div.focusLeft div.inset div.title")
+            cps = driver.find_elements(By.CSS_SELECTOR, "div.focusLeft div.inset div.title")
             print(cps.text)
             report = False
             # Uncomment to stop after 5 minutes
