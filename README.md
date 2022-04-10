@@ -41,7 +41,7 @@ Day 53 - SF Renting Research<br>
 TODO:<br>
 Day 49 - LinkedIn Job Applier - incomplete<br>
 Day 50 - Auto Tinder Swiping Bot - skipped<br>
-Day 54<br>
+Day 54 - Decorators<br>
 Day 55<br>
 Day 56<br>
 Day 57<br>
