@@ -13,6 +13,7 @@ import requests
 
 AGIFY_URL = "https://api.agify.io"
 GENDERIZE_URL = "https://api.genderize.io"
+BLOG_URL = "https://api.npoint.io/b48a954824422ec94216"  # this gets pruned periodically
 
 app = Flask(__name__)
 
@@ -36,6 +37,14 @@ def guess_age_gender(input_name):
 
     return age, gender
 
+def get_blog_data():
+    # Get blog data from bin
+    response = requests.get(url=BLOG_URL)
+    response.raise_for_status()
+    data = response.json()
+    print("Obtained blog data)")
+    return data
+
 @app.route("/")
 def homepage():
     return render_template("index.html", year=year, name="Marcelo")
@@ -46,6 +55,12 @@ def guess(name):
     age, gender = guess_age_gender(name)
     return render_template("guess.html", year=year, name=name, age=age, gender=gender)
 
+# Guess age and gender dynamically from name in URL
+@app.route("/blog")
+def blog():
+    blog_posts = get_blog_data()
+    print("Loaded blog posts")
+    return render_template("blog.html", posts=blog_posts)
 
 if __name__ == "__main__":
     app.run()
