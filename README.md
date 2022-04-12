@@ -44,7 +44,7 @@ Day 56 - Name Card<br>
 TODO:<br>
 Day 49 - LinkedIn Job Applier - incomplete - further testing needed<br>
 Day 50 - Auto Tinder Swiping Bot - incomplete - further testing needed<br>
-Day 57<br>
+Day 57 - Templating Jinja<br>
 Day 58<br>
 Day 59<br>
 Day 60<br>
