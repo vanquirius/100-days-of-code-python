@@ -6,7 +6,7 @@
 # 100 Days of Code: The Complete Python Pro Bootcamp for 2022
 # Day 57 - Templating Jinja
 
-BLOG_URL = "https://api.npoint.io/b48a954824422ec94216"  # this gets pruned periodically
+BLOG_URL = "https://api.npoint.io/b48a954824422ec94216"  # this gets pruned periodically, populate from blog-data.txt
 
 from flask import Flask, render_template
 from flask_wtf.csrf import CSRFProtect
