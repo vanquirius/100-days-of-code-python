@@ -22,22 +22,29 @@ def get_blog_data():
     response = requests.get(url=BLOG_URL)
     response.raise_for_status()
     data = response.json()
-    print("Obtained blog data)")
+    print("Obtained blog data")
     return data
 
 
 @app.route('/')
 def home():
+    # Homepage for blog
     blog_posts = get_blog_data()
     print("Loaded blog posts")
     return render_template("index.html", posts=blog_posts)
 
 
-@app.route('/blog/<num>')
-def read_post():
+@app.route('/post/<num>')
+def read_post(num):
+    # Specific post
     blog_posts = get_blog_data()
     print("Loaded blog posts")
-    return render_template("index.html", posts=blog_posts)
+    requested_post = []
+    for i in blog_posts:
+        if str(i["id"]) == str(num):
+            requested_post = i
+    print("Selected blog post")
+    return render_template("post.html", posts=requested_post)
 
 
 if __name__ == "__main__":

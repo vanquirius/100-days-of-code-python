@@ -88,7 +88,6 @@ def generate_report(input_resources, input_money):
     print("Milk: " + str(input_resources.get("milk")) + "ml")
     print("Coffee: " + str(input_resources.get("coffee")) + "gr")
     print("Money: $" + str(input_money))
-    return
 
 
 # Requirement 4: Check if resources are sufficient
