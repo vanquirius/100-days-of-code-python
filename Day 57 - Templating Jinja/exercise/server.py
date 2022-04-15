@@ -8,6 +8,7 @@
 
 from flask import Flask
 from flask import render_template
+from flask_wtf.csrf import CSRFProtect
 from datetime import datetime
 import requests
 
@@ -16,6 +17,8 @@ GENDERIZE_URL = "https://api.genderize.io"
 BLOG_URL = "https://api.npoint.io/b48a954824422ec94216"  # this gets pruned periodically
 
 app = Flask(__name__)
+csrf = CSRFProtect(app)
+csrf.init_app(app)
 
 year = datetime.now().year
 

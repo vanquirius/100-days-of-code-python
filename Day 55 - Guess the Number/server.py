@@ -7,12 +7,15 @@
 # Day 55 - Guess the Number
 
 from flask import Flask
+from flask_wtf.csrf import CSRFProtect
 import random
 
 # Generate a random number between 1 and 9
 random_number = random.randint(1, 9)
 
 app = Flask(__name__)
+csrf = CSRFProtect(app)
+csrf.init_app(app)
 
 @app.route("/")
 def homepage():
