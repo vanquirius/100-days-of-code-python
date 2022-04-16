@@ -6,16 +6,17 @@
 # 100 Days of Code: The Complete Python Pro Bootcamp for 2022
 # Day 49 - LinkedIn Job Applier
 
-# Credentials
-login = "######"
-password = "######"
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 #from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
 import time
+import os
+
+# Credentials
+login = os.getenv("login")
+password = os.getenv("password")
 
 # Start Chrome Driver
 s=Service(ChromeDriverManager().install())

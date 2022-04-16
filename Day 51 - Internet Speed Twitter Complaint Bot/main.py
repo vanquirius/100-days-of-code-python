@@ -6,13 +6,14 @@
 # 100 Days of Code: The Complete Python Pro Bootcamp for 2022
 # Day 51 - Internet Speed Twitter Complaint Bot
 
+from internet_speed_twitter_bot import InternetSpeedTwitterBot
+import os
+
 PROMISED_DOWN = 500
 PROMISED_UP = 35
-TWITTER_EMAIL = "######"
-TWITTER_NAME = "######"
-TWITTER_PASSWORD = "######"
-
-from internet_speed_twitter_bot import InternetSpeedTwitterBot
+TWITTER_EMAIL = os.getenv("TWITTER_EMAIL")
+TWITTER_NAME = os.getenv("TWITTER_NAME")
+TWITTER_PASSWORD = os.getenv("TWITTER_PASSWORD")
 
 # Instantiate bot
 bot = InternetSpeedTwitterBot()

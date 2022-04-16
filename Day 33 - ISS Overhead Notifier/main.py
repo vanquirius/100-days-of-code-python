@@ -11,6 +11,7 @@ from datetime import datetime
 import smtplib
 import time
 import send_email
+import os
 
 # Coordinates for São Paulo, SP, Brazil
 MY_LAT = -23.550520
@@ -18,9 +19,9 @@ MY_LONG = -46.633308
 TOLERANCE = 5
 
 # Credentials
-my_email = "######"
-my_password = "######" # If using SMPT
-sendGridToken = "######"  # if using Send Grid
+my_email = os.getenv("my_email")
+my_password = os.getenv("my_password")  # If using SMPT
+sendGridToken = os.getenv("sendGridToken")  # if using Send Grid
 
 
 def get_iss_position():

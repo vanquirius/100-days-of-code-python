@@ -12,15 +12,15 @@ from datetime import *
 import pandas
 import random
 import send_email
+import os
 
 # Constants
 DATAFILE = "birthdays.csv"
-cc_email = "######"
 
 # Credentials
-my_email = "######"
-my_password = "######"  # If using SMPT
-sendGridToken = "######"  # if using Send Grid
+my_email = os.getenv("my_email")
+my_password = os.getenv("my_password")  # If using SMPT
+sendGridToken = os.getenv("sendGridToken")  # if using Send Grid
 
 
 def select_birthday():
@@ -45,7 +45,7 @@ def select_birthday():
                 content = content.replace("[NAME]", birthday_person["name"])
                 subject = "Feliz aniversário! Happy Birthday!"
                 send_msg = ("Subject:" + str(subject) + "\n\n" + str(content)).encode('utf-8')
-                address = birthday_person["email"] + "," + cc_email
+                address = birthday_person["email"]
                 # 4. Send the letter generated in step 3 to that person's email address.
                 if send_email.sendgrid_enabled == 1:
                     send_email.send_grid_email(input_mail_subject=subject, input_send_msg=content, input_to_email=address,

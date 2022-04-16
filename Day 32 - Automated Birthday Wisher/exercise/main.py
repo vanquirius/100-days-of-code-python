@@ -10,14 +10,15 @@ import smtplib
 import datetime as dt
 import pandas
 import random
+import os
 
 # Constants
 DATAFILE = "quotes.txt"
 
 # Credentials
-my_email = "######"
-my_password = "######"
-to_email = "######"
+my_email = os.getenv("my_email")
+my_password = os.getenv("my_password")
+to_email = os.getenv("to_email")
 
 # E-Mail server settings
 smtp_server = "smtp.gmail.com"

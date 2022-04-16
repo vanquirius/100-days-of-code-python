@@ -6,14 +6,15 @@
 # 100 Days of Code: The Complete Python Pro Bootcamp for 2022
 # Day 50 - Auto Tinder Swiping Bot
 
-TINDER_USER = "######"
-TINDER_PASSWORD = "######"
-
 # We are using undetected_chromedriver to be able to login into Google Accounts without being called out as a bot
 import undetected_chromedriver as uc
 import time
 from selenium.webdriver.common.by import By
 import random
+import os
+
+TINDER_USER = os.getenv("TINDER_USER")
+TINDER_PASSWORD = os.getenv("TINDER_PASSWORD")
 
 WAIT_TIME = 8
 

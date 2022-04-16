@@ -6,25 +6,27 @@
 # 100 Days of Code: The Complete Python Pro Bootcamp for 2022
 # Day 40 - Flight Club
 
-# API keys for Twilio
-account_sid = "######"
-auth_token = "######"
-twilio_phone_number = "######"
-to_phone_number = "######"
-
-# Credentials for E-Mail
-my_email = "######"
-my_password = "######" # If using SMPT
-sendGridToken = "######"  # if using Send Grid
-
-# Sheety Credentials
-SHEETY_USERS_ENDPOINT = "https://api.sheety.co/######/flightDeals/users"
-sheety_api_key = "######"
-headers = {"Authorization": "Bearer " + sheety_api_key}
-
 import requests
 import twilio_sms
 import send_email
+import os
+
+# API keys for Twilio
+account_sid = os.getenv("account_sid")
+auth_token = os.getenv("auth_token")
+twilio_phone_number = os.getenv("twilio_phone_number")
+to_phone_number = os.getenv("to_phone_number")
+
+# Credentials for E-Mail
+my_email = os.getenv("my_email")
+my_password = os.getenv("my_password")  # If using SMPT
+sendGridToken = os.getenv("sendGridToken")  # if using Send Grid
+
+# Sheety Credentials
+SHEETY_USERS_ENDPOINT = os.getenv("SHEETY_USERS_ENDPOINT")
+sheety_api_key = os.getenv("sheety_api_key")
+headers = {"Authorization": "Bearer " + sheety_api_key}
+
 
 class NotificationManager:
 

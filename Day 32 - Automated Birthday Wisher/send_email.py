@@ -10,7 +10,7 @@ import smtplib
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
-# Set as 1 to choose Send Grid over SMTP
+# Set as 1 to choose SendGrid over SMTP
 sendgrid_enabled = 1
 
 # E-Mail server settings

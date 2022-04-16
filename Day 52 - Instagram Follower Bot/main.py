@@ -6,11 +6,12 @@
 # 100 Days of Code: The Complete Python Pro Bootcamp for 2022
 # Day 52 - Instagram Follower Bot Account
 
-INSTAGRAM_USER = "######"
-INSTAGRAM_PASSWORD = "######"
-ACCOUNT_TO_FOLLOW = "harvard_business_review"  # just an example
-
 from instagram_follower_bot import InstagramBot
+import os
+
+INSTAGRAM_USER = os.getenv("INSTAGRAM_USER")
+INSTAGRAM_PASSWORD = os.getenv("INSTAGRAM_PASSWORD")
+ACCOUNT_TO_FOLLOW = "harvard_business_review"  # just an example
 
 # Instantiate bot
 bot = InstagramBot(INSTAGRAM_USER, INSTAGRAM_PASSWORD, ACCOUNT_TO_FOLLOW)
