@@ -7,9 +7,10 @@
 # Day 40 - Flight Club
 
 import requests
+import os
 
-SHEETY_USERS_ENDPOINT = "https://api.sheety.co/######/flightDeals/users"
-sheety_api_key = "######"
+SHEETY_USERS_ENDPOINT = os.getenv("SHEETY_USERS_ENDPOINT")
+sheety_api_key = os.getenv("sheety_api_key")
 headers = {"Authorization": "Bearer " + sheety_api_key}
 
 class Enroll:

@@ -9,17 +9,29 @@
 import requests
 import lxml
 from bs4 import BeautifulSoup
-import send_email
+from send_email import SendEmail
+import os
 
-# Credentials for E-Mail
-my_email = "######"
-my_password = "######"  # If using SMPT
-sendGridToken = "######"  # if using Send Grid
+# Set as 1 to choose SendGrid over SMTP
+sendgrid_enabled = 1
+
+# E-Mail server settings
+smtp_server = "smtp.gmail.com"  # if using SMTP
+smtp_port = "587"  # if using SMTP
+
+# Credentials
+from_email = os.getenv("from_email")
+sendGridToken = os.getenv("sendGridToken")  # If using SendGrid
+email_password = os.getenv("email_password")  # If using SMTP
+to_email = from_email
+
+sendemail = SendEmail(from_email, smtp_server, smtp_port, email_password, sendGridToken)
 
 target_price = 75
 
 # URL of Product
 url = "https://www.amazon.com/XOSS-Computer-Speedometer-Waterproof-Bluetooth/dp/B07XDSPXR4/ref=sr_1_1?qid=1648414926"
+
 
 # Get data from URL
 def get_data_from_url():
@@ -33,16 +45,20 @@ def get_data_from_url():
     soup = BeautifulSoup(webpage, "lxml")
     return soup
 
+
 soup = get_data_from_url()
 
+
 def parse_price(input_soup):
-    price = input_soup.find(class_="a-offscreen").get_text()
-    price_without_currency = price.split("$")[1]
+    price_get = input_soup.find(class_="a-offscreen").get_text()
+    price_without_currency = price_get.split("$")[1]
     price_as_float = float(price_without_currency)
     return price_as_float
 
+
 price = parse_price(soup)
 print("Price: " + str(price))
+
 
 def notify_price(input_price):
     subject = "Good price offer found on Amazon"
@@ -50,12 +66,11 @@ def notify_price(input_price):
     content = message
     send_msg = ("Subject:" + str(subject) + "\n\n" + str(content)).encode('utf-8')
 
-    if send_email.sendgrid_enabled == 1:
-        send_email.send_grid_email(input_mail_subject=subject, input_send_msg=content, input_to_email=my_email,
-                                   input_my_email=my_email, input_sendGridToken=sendGridToken)
+    if sendgrid_enabled == 1:
+        sendemail.send_grid_email(to_email, subject, content)
     else:
-        send_email.send_email(input_to_email=my_email, input_send_msg=send_msg, input_my_email=my_email,
-                              input_my_password=my_password)
+        sendemail.send_smtp_email(to_email, send_msg)
+
 
 if price < target_price:
     notify_price(price)

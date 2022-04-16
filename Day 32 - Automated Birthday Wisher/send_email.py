@@ -10,6 +10,7 @@ import smtplib
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
+
 class SendEmail:
     def __init__(self, from_email, smtp_server, smtp_port, password, sendGridToken):
         self.from_email = from_email

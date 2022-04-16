@@ -7,9 +7,10 @@
 # Day 40 - Flight Club
 
 import requests
+import os
 
-SHEETY_PRICES_ENDPOINT = "https://api.sheety.co/######/flightDeals/prices"
-sheety_api_key = "######"
+SHEETY_PRICES_ENDPOINT = os.getenv("SHEETY_PRICES_ENDPOINT")
+sheety_api_key = os.getenv("sheety_api_key")
 headers = {"Authorization": "Bearer " + sheety_api_key}
 
 class DataManager:

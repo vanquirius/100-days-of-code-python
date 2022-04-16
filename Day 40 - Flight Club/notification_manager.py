@@ -8,8 +8,8 @@
 
 import requests
 import twilio_sms
-import send_email
 import os
+from send_email import SendEmail
 
 # API keys for Twilio
 account_sid = os.getenv("account_sid")
@@ -17,10 +17,19 @@ auth_token = os.getenv("auth_token")
 twilio_phone_number = os.getenv("twilio_phone_number")
 to_phone_number = os.getenv("to_phone_number")
 
-# Credentials for E-Mail
-my_email = os.getenv("my_email")
-my_password = os.getenv("my_password")  # If using SMPT
-sendGridToken = os.getenv("sendGridToken")  # if using Send Grid
+# Set as 1 to choose SendGrid over SMTP
+sendgrid_enabled = 1
+
+# E-Mail server settings
+smtp_server = "smtp.gmail.com"  # if using SMTP
+smtp_port = "587"  # if using SMTP
+
+# Credentials
+from_email = os.getenv("from_email")
+sendGridToken = os.getenv("sendGridToken")  # If using SendGrid
+email_password = os.getenv("email_password")  # If using SMTP
+
+sendemail = SendEmail(from_email, smtp_server, smtp_port, email_password, sendGridToken)
 
 # Sheety Credentials
 SHEETY_USERS_ENDPOINT = os.getenv("SHEETY_USERS_ENDPOINT")
@@ -36,16 +45,14 @@ class NotificationManager:
     def notify_sms(self, message):
         twilio_sms.send_sms(account_sid, auth_token, twilio_phone_number, to_phone_number, message)
 
-    def notify_email(self, message, address=my_email):
+    def notify_email(self, message, to_email):
         subject = "New flight offer found!"
         content = message
         send_msg = ("Subject:" + str(subject) + "\n\n" + str(content)).encode('utf-8')
-        if send_email.sendgrid_enabled == 1:
-            send_email.send_grid_email(input_mail_subject=subject, input_send_msg=content, input_to_email=address,
-                                       input_my_email=my_email, input_sendGridToken=sendGridToken)
+        if sendgrid_enabled == 1:
+            sendemail.send_grid_email(to_email, subject, content)
         else:
-            send_email.send_email(input_to_email=address, input_send_msg=send_msg, input_my_email=my_email,
-                                  input_my_password=my_password)
+            sendemail.send_smtp_email(to_email, send_msg)
 
     def get_user_emails(self):
         # Get E-Mail list from users tab using Sheety
