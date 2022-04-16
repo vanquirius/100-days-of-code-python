@@ -7,14 +7,17 @@
 # Day 40 - Flight Club
 
 import requests
-import twilio_sms
-import os
 from send_email import SendEmail
+from twilio_sms import SendSMS
+import os
 
-# API keys for Twilio
+# Account, token and phone number for Twilio
 account_sid = os.getenv("account_sid")
 auth_token = os.getenv("auth_token")
 twilio_phone_number = os.getenv("twilio_phone_number")
+twilio_sms = SendSMS(account_sid, auth_token, twilio_phone_number)
+
+# Send SMS to this phone number
 to_phone_number = os.getenv("to_phone_number")
 
 # Set as 1 to choose SendGrid over SMTP
@@ -43,7 +46,7 @@ class NotificationManager:
         self.user_emails = []
 
     def notify_sms(self, message):
-        twilio_sms.send_sms(account_sid, auth_token, twilio_phone_number, to_phone_number, message)
+        twilio_sms.send_sms(to_phone_number, message)
 
     def notify_email(self, message, to_email):
         subject = "New flight offer found!"

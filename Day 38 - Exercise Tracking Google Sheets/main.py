@@ -8,11 +8,12 @@
 
 import requests
 from datetime import datetime
+import os
 
-nutritionix_app_id = "######"
-nutritionix_api_key = "######"
-sheety_token = "######"
-sheety_api_key = "######"
+nutritionix_app_id = os.getenv("nutritionix_app_id")
+nutritionix_api_key = os.getenv("nutritionix_api_key")
+sheety_token = os.getenv("sheety_token")
+sheety_api_key = os.getenv("sheety_api_key")
 
 my_gender = "male"
 my_weight_kg = 86.0

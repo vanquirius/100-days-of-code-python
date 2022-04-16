@@ -6,14 +6,14 @@
 # 100 Days of Code: The Complete Python Pro Bootcamp for 2022
 # Day 53 - SF Renting Research
 
-GOOGLE_FORM_URL = "https://docs.google.com/forms/######"
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 import time
+import os
 
+GOOGLE_FORM_URL = os.getenv("GOOGLE_FORM_URL")
 WAIT_TIME = 2
 
 class GoogleFormBot:

@@ -15,8 +15,8 @@ import time
 import os
 
 # Credentials
-login = os.getenv("login")
-password = os.getenv("password")
+login = os.getenv("linkedin_login")
+password = os.getenv("linkedin_password")
 
 # Start Chrome Driver
 s=Service(ChromeDriverManager().install())

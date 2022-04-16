@@ -10,9 +10,10 @@ import requests
 from datetime import datetime
 from dateutil.relativedelta import *
 from flight_data import FlightData
+import os
 
 TEQUILA_ENDPOINT = "https://tequila-api.kiwi.com"
-TEQUILA_API_KEY = "######"
+TEQUILA_API_KEY = os.getenv("TEQUILA_API_KEY")
 city_from = "GRU"  # Guarulhos Airport - São Paulo, SP, Brazil Area
 
 

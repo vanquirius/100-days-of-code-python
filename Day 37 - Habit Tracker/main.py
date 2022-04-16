@@ -8,9 +8,10 @@
 
 import requests
 from datetime import datetime
+import os
 
-token_input = "######"
-username_input = "######"
+token_input = os.getenv("pixela_token_input")
+username_input = os.getenv("pixela_username_input")
 agreetos_input = "yes"
 notminor_input = "yes"
 

@@ -1,26 +1,32 @@
 # coding=utf-8
 # Marcelo Ambrosio de Goes
 # marcelogoes@gmail.com
-# 2022-03-21
+# 2022-04-16
 
 # 100 Days of Code: The Complete Python Pro Bootcamp for 2022
 # Day 36 - Stock Trading News Alert
 
 import requests
 from datetime import datetime
-import twilio_sms
+from twilio_sms import SendSMS
+import os
 
-STOCK = "VT"
-COMPANY_NAME = "Vanguard Total World Stock Index ETF"
+STOCK = "TSLA"
+COMPANY_NAME = "Tesla Inc"
 DELTA_WARNING = (1 / 100)
 
-# API keys for Alpha Vantage and Twilio
-alpha_vantage_api_key = "######"
-news_api_key = "######"
-account_sid = "######"
-auth_token = "######"
-twilio_phone_number = "######"
-to_phone_number = "######"
+# API keys for Alpha Vantage
+alpha_vantage_api_key = os.getenv("alpha_vantage_api_key")
+news_api_key = os.getenv("news_api_key")
+
+# Account, token and phone number for Twilio
+account_sid = os.getenv("account_sid")
+auth_token = os.getenv("auth_token")
+twilio_phone_number = os.getenv("twilio_phone_number")
+twilio_sms = SendSMS(account_sid, auth_token, twilio_phone_number)
+
+# Send SMS to this phone number
+to_phone_number = os.getenv("to_phone_number")
 
 ## STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
@@ -41,11 +47,11 @@ def get_stock_data():
     data_list = [value for (key, value) in data.items()]
     yesterday_data = data_list[0]
     yesterday_closing_price = yesterday_data["4. close"]
-    print("Yesterday price: " + str(yesterday_closing_price))
+    print("D-1 price: " + str(yesterday_closing_price))
 
     day_before_yesterday_data = data_list[1]
     day_before_yesterday_closing_price = day_before_yesterday_data["4. close"]
-    print("Day before yesterday price: " + str(day_before_yesterday_closing_price))
+    print("D-2 price: " + str(day_before_yesterday_closing_price))
 
     delta_stock_price = (float(yesterday_closing_price) / float(day_before_yesterday_closing_price) - 1)
     return delta_stock_price
@@ -95,13 +101,14 @@ def check_delta_and_alert():
         print("Variation above " + str(DELTA_WARNING * 100) + "% - Get News")
         articles = get_news()
         formatted_articles = [f"Title: {i['title']}. \nBrief: {i['description']}" for i in articles]
+        print(formatted_articles)
         # Set sign for SMS
         sign = "🔺"
         if delta_stock_price < 0:
             sign = "🔻"
         for i in formatted_articles:
             message = str(STOCK) + ":" + str(sign) + str(round(abs(delta_stock_price) * 100, 1)) + "%\n" + i
-            twilio_sms.send_sms(account_sid, auth_token, twilio_phone_number, to_phone_number, message)
+            twilio_sms.send_sms(to_phone_number, message)
     else:
         print("Variation below " + str(DELTA_WARNING * 100) + "% - Do not get news")
 

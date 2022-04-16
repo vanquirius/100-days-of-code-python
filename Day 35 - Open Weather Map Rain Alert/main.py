@@ -7,21 +7,27 @@
 # Day 35 - Open Weather Map Rain Alert
 
 import requests
-import twilio_sms
+from twilio_sms import SendSMS
+import os
 
 # Coordinates for São Paulo, SP, Brazil
 MY_LAT = -23.550520
 MY_LONG = -46.633308
 
-# API Keys for Open Weather Maps and Twilio
-owp_api_key = "######"
-account_sid = "######"
-auth_token = "######"
-twilio_phone_number = "######"
-to_phone_number = "######"
+# API Key for Open Weather Maps
+owp_api_key = os.getenv("owp_api_key")
+
+# Account, token and phone number for Twilio
+account_sid = os.getenv("account_sid")
+auth_token = os.getenv("auth_token")
+twilio_phone_number = os.getenv("twilio_phone_number")
+twilio_sms = SendSMS(account_sid, auth_token, twilio_phone_number)
+
+# Send SMS to this phone number
+to_phone_number = os.getenv("to_phone_number")
 
 
-def get_owp_onecallapi():
+def get_owp_onecallapi(input_to_phone_number):
     # Call One Call API from Open Weather Maps
     parameters = {
         "lat": MY_LAT,
@@ -47,9 +53,9 @@ def get_owp_onecallapi():
     if bad_weather:
         message = "Bad weather! Bring an umbrella"
         print(message)
-        twilio_sms.send_sms(account_sid, auth_token, twilio_phone_number, to_phone_number, message)
+        twilio_sms.send_sms(to_phone_number, message)
     else:
         print("Weather is good!")
 
 
-get_owp_onecallapi()
+get_owp_onecallapi(to_phone_number)
