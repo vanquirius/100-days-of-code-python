@@ -41,11 +41,11 @@ Day 54 - Decorators<br>
 Day 55 - Guess the Number<br>
 Day 56 - Name Card<br>
 Day 57 - Templating Jinja<br>
+Day 58 - Web Foundation Bootstrap<br>
 <br>
 TODO:<br>
 Day 49 - LinkedIn Job Applier - incomplete - further testing needed<br>
 Day 50 - Auto Tinder Swiping Bot - incomplete - further testing needed<br>
-Day 58 - Web Foundation Bootstrap<br>
 Day 59<br>
 Day 60<br>
 Day 61<br>
