@@ -10,7 +10,7 @@ DEFAULT_EMAIL = "sample@email.com"
 
 from tkinter import *
 from tkinter import messagebox
-import random
+import secrets
 import pyperclip
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -19,8 +19,7 @@ def generate_password():
     # Create a new random password
     password_entry.delete(0, END)
     str_size = 20
-    allowed_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
-    new_password = ''.join(random.choice(allowed_chars) for i in range(str_size))
+    new_password = secrets.token_urlsafe(str_size)
     password_entry.insert(END, new_password)
     pyperclip.copy(new_password)
 
