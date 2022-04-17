@@ -1,0 +1,23 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}Library{% endblock %}
+{% block content %}
+<h1>My Library</h1>
+      <table class="table">
+	  <tr>
+		  <td>Title</td>
+		  <td>Author</td>
+		  <td>Rating</td>
+	  <tr>
+	  {% for book in books %}
+	  <tr>
+		  <td>{{ book.title }}</td>
+		  <td>{{ book.author }}</td>
+		  <td>{{ book.rating }}</td>
+	  </tr>
+	  {% endfor %}
+  	  </table>
+      {% if books == [] %}
+      <p>Library is empty.</p>
+      {% endif %}
+<a href="{{ url_for('add') }}">Add New Book</a>
+{% endblock %}
