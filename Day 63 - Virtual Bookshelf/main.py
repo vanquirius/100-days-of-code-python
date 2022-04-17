@@ -10,7 +10,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
-from wtforms import StringField, SubmitField, SelectField
+from wtforms import StringField, SubmitField, SelectField, HiddenField
 from wtforms.validators import DataRequired
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import InvalidRequestError
@@ -47,13 +47,18 @@ try:
 except InvalidRequestError:
     pass
 
-# Form template
+
+# Add new book form
 class BookForm(FlaskForm):
     book_name = StringField('Book Name', validators=[DataRequired()])
     book_author = StringField("Book Author", validators=[DataRequired()])
     book_rating = SelectField("Rating", choices=["*", "**", "***", "****", "*****"], validators=[DataRequired()])
     submit = SubmitField('Add Book')
 
+# Edit book rating form
+class EditRatingForm(FlaskForm):
+    book_rating = SelectField("Rating", choices=["*", "**", "***", "****", "*****"], validators=[DataRequired()])
+    submit = SubmitField('Change Rating')
 
 @app.route('/')
 def home():
@@ -65,17 +70,44 @@ def home():
 
 @app.route("/add", methods=["GET", "POST"])
 def add():
+    # Read list of books from database
+    all_books = db.session.query(Book).all()
     form = BookForm()
     # Capture data from the form and add to book list
     if form.validate_on_submit():
-        new_book = {
-            "title": form.book_name.data,
-            "author": form.book_author.data,
-            "rating": form.book_rating.data
-        }
-        all_books.append(new_book)
+        new_book = Book(
+            title=form.book_name.data,
+            author=form.book_author.data,
+            rating=form.book_rating.data
+        )
+        db.session.add(new_book)
+        db.session.commit()
         return redirect(url_for('home'))
     return render_template('add.html', form=form)
+
+@app.route("/edit", methods=["GET", "POST"])
+def edit():
+    form = EditRatingForm()
+    if form.validate_on_submit():
+        book_id = request.args.get('id')
+        book_to_update = Book.query.get(book_id)
+        book_to_update.rating = form.book_rating.data
+        db.session.commit()
+        return redirect(url_for('home'))
+    book_id = request.args.get('id')
+    book_selected = Book.query.get(book_id)
+    return render_template("edit_rating.html", form=form, book=book_selected)
+
+
+@app.route("/delete")
+def delete():
+    book_id = request.args.get('id')
+
+    # DELETE A RECORD BY ID
+    book_to_delete = Book.query.get(book_id)
+    db.session.delete(book_to_delete)
+    db.session.commit()
+    return redirect(url_for('home'))
 
 
 if __name__ == "__main__":

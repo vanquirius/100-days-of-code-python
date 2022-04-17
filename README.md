@@ -71,8 +71,8 @@ These are my solutions for the course below:<br>
 - Day 60: HTML Forms with Flask
 - Day 61: Building Advanced Forms with WTForms
 - Day 62: Flask, WTForms, Bootstrap and CSV - Coffee & Wifi Project
-- *TODO:*
 - Day 63: Databases and with SQLite and SQLAlchemy
+- *TODO:*
 - Day 64: My Top 10 Movies Website
 - Day 65: Web Design School - How to Create a Website that People will Love
 - Day 66: Building Your Own API with RESTful Routing

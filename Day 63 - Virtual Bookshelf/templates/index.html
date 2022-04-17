@@ -1,18 +1,23 @@
 {% extends 'bootstrap/base.html' %}
 {% block title %}Library{% endblock %}
 {% block content %}
+<script src="https://kit.fontawesome.com/e8f20e6fd4.js" integrity="sha384-q0Ki7xTyGhjVohAIXcLHAfhhVIIft8GqmY/DcCRN2/En9Anj1EDA3cVoS8n/8RP9" crossorigin="anonymous"></script>
 <h1>My Library</h1>
       <table class="table">
 	  <tr>
 		  <td>Title</td>
 		  <td>Author</td>
 		  <td>Rating</td>
+		  <td>Edit Rating</td>
+		  <td>Delete</td>
 	  <tr>
 	  {% for book in books %}
 	  <tr>
 		  <td>{{ book.title }}</td>
 		  <td>{{ book.author }}</td>
 		  <td>{{ book.rating }}</td>
+		  <td><a href="{{ url_for('edit', id=book.id) }}"><i class="fas fa-edit" aria-hidden="true"></i></a></td>
+		  <td><a href="{{ url_for('delete', id=book.id) }}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 	  </tr>
 	  {% endfor %}
   	  </table>
