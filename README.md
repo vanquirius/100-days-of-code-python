@@ -45,12 +45,12 @@ Day 58 - Web Foundation Bootstrap<br>
 Day 59 - Blog with Style<br>
 Day 60 - POST Request Flask HTML Forms<br>
 Day 61 - Flask-WTForms<br>
+Day 62 - Coffee and Wifi<br>
 <br>
 TODO:<br>
 Day 49 - LinkedIn Job Applier - incomplete - further testing needed<br>
 Day 50 - Auto Tinder Swiping Bot - incomplete - further testing needed<br>
-Day 62<br>
-Day 63<br>
+Day 63 - Virtual Bookshelf<br>
 Day 64<br>
 Day 65<br>
 Day 66<br>
