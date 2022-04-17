@@ -1,16 +1,16 @@
 # coding=utf-8
 # Marcelo Ambrosio de Goes
 # marcelogoes@gmail.com
-# 2022-04-11
+# 2022-04-16
 
 # 100 Days of Code: The Complete Python Pro Bootcamp for 2022
-# Day 57 - Templating Jinja
+# Day 59 - Blog with Style
 
 from flask import Flask, render_template
 from flask_wtf.csrf import CSRFProtect
 import requests
 
-BLOG_URL = "https://api.npoint.io/b48a954824422ec94216"  # this gets pruned periodically, populate from blog-data.txt
+BLOG_URL = "https://api.npoint.io/46b7d5447ebd3c655f57"  # this gets pruned periodically, populate from blog-data.txt
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
@@ -23,6 +23,7 @@ def get_blog_data():
     response.raise_for_status()
     data = response.json()
     print("Obtained blog data")
+    print(data)
     return data
 
 
@@ -33,6 +34,17 @@ def home():
     print("Loaded blog posts")
     return render_template("index.html", posts=blog_posts)
 
+
+@app.route('/about.html')
+def about():
+    # About
+    return render_template("about.html")
+
+
+@app.route('/contact.html')
+def contact():
+    # Contact
+    return render_template("contact.html")
 
 @app.route('/post/<num>')
 def read_post(num):

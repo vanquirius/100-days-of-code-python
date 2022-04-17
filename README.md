@@ -46,7 +46,7 @@ Day 58 - Web Foundation Bootstrap<br>
 TODO:<br>
 Day 49 - LinkedIn Job Applier - incomplete - further testing needed<br>
 Day 50 - Auto Tinder Swiping Bot - incomplete - further testing needed<br>
-Day 59<br>
+Day 59 - Blog with Style<br>
 Day 60<br>
 Day 61<br>
 Day 62<br>
