@@ -13,7 +13,7 @@ from flask_wtf.csrf import CSRFProtect
 from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.exc import IntegrityError, InvalidRequestError
+from sqlalchemy.exc import InvalidRequestError
 
 # Flask setup with CSRF Protection + Bootstrap + WTForms
 app = Flask(__name__)
@@ -47,12 +47,7 @@ try:
 except InvalidRequestError:
     pass
 
-# CREATE RECORD
-new_book = Book(id=1, title="Harry Potter", author="J. K. Rowling", rating=9.3)
-db.session.add(new_book)
-db.session.commit()
-
-
+# Form template
 class BookForm(FlaskForm):
     book_name = StringField('Book Name', validators=[DataRequired()])
     book_author = StringField("Book Author", validators=[DataRequired()])
@@ -60,12 +55,10 @@ class BookForm(FlaskForm):
     submit = SubmitField('Add Book')
 
 
-# Start with an empty list of books
-all_books = []
-
-
 @app.route('/')
 def home():
+    # Read list of books from database
+    all_books = db.session.query(Book).all()
     # Render template with the most up-to-date list of books
     return render_template('index.html', books=all_books)
 
