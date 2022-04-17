@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- Form to capture username and password and pass on to /login -->
+    <form action="{{ url_for('receive_login_data') }}" method="post">
+        <!-- The line below is needed by CSRF -->
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <label>Name</label>
+        <input type="text" placeholder="name" id="username" name="username">
+        <label>Password</label>
+        <input type="text" placeholder="password" id="password" name="password">
+        <button type="submit">Ok</button>
+    </form>
+</body>
+</html>
