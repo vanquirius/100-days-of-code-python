@@ -70,8 +70,6 @@ def home():
 
 @app.route("/add", methods=["GET", "POST"])
 def add():
-    # Read list of books from database
-    all_books = db.session.query(Book).all()
     form = BookForm()
     # Capture data from the form and add to book list
     if form.validate_on_submit():

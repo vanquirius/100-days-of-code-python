@@ -53,6 +53,12 @@ except InvalidRequestError:
     pass
 
 
+# Add new movie form
+class MovieForm(FlaskForm):
+    movie_name = StringField('Movie Name', validators=[DataRequired()])
+    submit = SubmitField('Add Movie')
+
+
 # Edit book rating form
 class EditMovieForm(FlaskForm):
     movie_review = StringField("Your Review", validators=[DataRequired()])
@@ -64,6 +70,20 @@ class EditMovieForm(FlaskForm):
 def home():
     all_movies = Movie.query.all()
     return render_template("index.html", movies=all_movies)
+
+
+@app.route("/add", methods=["GET", "POST"])
+def add():
+    form = MovieForm()
+    # Capture data from the form and add to movie list
+    #if form.validate_on_submit():
+    #    new_movie = Movie(
+    #        title=form.movie_name.data
+    #    )
+    #    db.session.add(new_movie)
+    #    db.session.commit()
+    #    return redirect(url_for('home'))
+    return render_template('add.html', form=form)
 
 
 @app.route("/edit", methods=["GET", "POST"])
