@@ -14,7 +14,7 @@ from flask_wtf.csrf import CSRFProtect
 from wtforms import StringField, SubmitField, FloatField
 from wtforms.validators import DataRequired, NumberRange
 from sqlalchemy.exc import InvalidRequestError
-import requests
+from tmdb import MovieSearch
 
 # Flask setup with CSRF Protection + Bootstrap + WTForms
 app = Flask(__name__)
@@ -75,14 +75,12 @@ def home():
 @app.route("/add", methods=["GET", "POST"])
 def add():
     form = MovieForm()
-    # Capture data from the form and add to movie list
-    #if form.validate_on_submit():
-    #    new_movie = Movie(
-    #        title=form.movie_name.data
-    #    )
-    #    db.session.add(new_movie)
-    #    db.session.commit()
-    #    return redirect(url_for('home'))
+    # Capture movie name from the form
+    if form.validate_on_submit():
+        # Search movie name in TMDB (might be multiple results)
+        movie_search = MovieSearch(form.movie_name.data).get_movie_data()
+        print(movie_search)
+        return render_template('select.html', movie_search=movie_search)
     return render_template('add.html', form=form)
 
 
