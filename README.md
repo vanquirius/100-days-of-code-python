@@ -56,7 +56,7 @@ These are my solutions for the course below:<br>
 - Day 47: Create an Automated Amazon Price Tracker
 - Day 48: Selenium Webdriver and Game Playing Bot
 - Day 49: Automating Job Applications on LinkedIn *(needs testing/review)*
-- Day 50: Automated Tinder Swiper *(needs testing/review)*
+- Day 50: Automated Tinder Swiper
 - Day 51: Internet Speed Twitter Complaint Bot
 - Day 52: Instagram Follower Bot
 - Day 53: Automated Data Entry Job

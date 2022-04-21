@@ -1,7 +1,7 @@
 # coding=utf-8
 # Marcelo Ambrosio de Goes
 # marcelogoes@gmail.com
-# 2022-04-10
+# 2022-04-21
 
 # 100 Days of Code: The Complete Python Pro Bootcamp for 2022
 # Day 50 - Auto Tinder Swiping Bot
@@ -10,13 +10,14 @@
 import undetected_chromedriver as uc
 import time
 
-from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
+from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException, \
+    ElementNotInteractableException
 from selenium.webdriver.common.by import By
 import random
 import os
 
-TINDER_USER = os.getenv("TINDER_USER")
-TINDER_PASSWORD = os.getenv("TINDER_PASSWORD")
+TINDER_USER = os.getenv("TINDER_USER")  # Google account user
+TINDER_PASSWORD = os.getenv("TINDER_PASSWORD")  # Google account password
 
 WAIT_TIME = 10
 WAIT_TIME_SHORT = 4
@@ -34,9 +35,11 @@ username_class = "whsOnd.zHQkBf"
 password_class = "whsOnd.zHQkBf"  # Same, but here for flexibility if anything changes in the future
 next_button_class = "VfPpkd-vQzf8d"
 allow_location_xpath = "/html/body/div[2]/div/div/div/div/div[3]/button[1]/span"
-notification_xpath = '//*[@id="modal-manager"]/div/div/div/div/div[3]/button[2]'
-like_xpath = "/html/body/div[1]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[4]/div/div[4]/button/span/span/svg/path"
-dislike_xpath = "/html/body/div[1]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[4]/div/div[2]/button/span/span/svg"
+notification_xpath = "/html/body/div[2]/div/div/div/div/div[3]/button[2]/span"
+like_xpath = "/html/body/div[1]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[4]/div/div[4]/button"
+like_xpath2 = "/html/body/div[1]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[5]/div/div[4]/button"
+dislike_xpath = "/html/body/div[1]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[4]/div/div[2]/button"
+dislike_xpath2 = "/html/body/div[1]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[5]/div/div[2]/button"
 profile_xpath = "/html/body/div[1]/div/div[1]/div/aside/div/a/div/div"
 logout_xpath = "/html/body/div[1]/div/div[1]/div/aside/nav/div/div/div/div/div/div/div[20]/div/div/div/div"
 confirm_logout_xpath = "/html/body/div[2]/div/div/div[2]/button[1]"
@@ -49,6 +52,7 @@ if __name__ == '__main__':
         "profile.default_content_setting_values.notifications": 1,
         "profile.default_content_setting_values.geolocation": 1,
     })
+    chrome_options.add_argument("--disable-features=ChromeWhatsNewUI")
 
     driver = uc.Chrome(options=chrome_options)
     driver.maximize_window()
@@ -75,7 +79,7 @@ if __name__ == '__main__':
     # Login into Tinder
     driver.get(tinder_url)
     print("Going to " + tinder_url)
-    time.sleep(WAIT_TIME)
+    time.sleep(WAIT_TIME_SHORT)
 
     # Accept cookies
     print("Accepting cookies")
@@ -93,50 +97,63 @@ if __name__ == '__main__':
     time.sleep(WAIT_TIME)
 
     # Allow location to be shared
+    allow_location_button = driver.find_element(By.XPATH, allow_location_xpath)
+    allow_location_button.click()
+    print("Allowing location to be shared")
+    time.sleep(WAIT_TIME_SHORT)
     try:
-        allow_location_button = driver.find_element(By.XPATH, allow_location_xpath)
-        allow_location_button.click()
-        print("Allowing location to be shared")
+        # Click on pop up to accept
+        driver.switch_to().alert().accept()  # switchTo depending on the version
         time.sleep(WAIT_TIME)
-        try:
-            # Click on pop up to accept
-            driver.switch_to().alert().accept()  # switchTo depending on the version
-            time.sleep(WAIT_TIME)
-        except TypeError:
-            pass
-    except NoSuchElementException:
+    except TypeError:
         pass
 
     # Notification button
-    try:
-        notification_button = driver.find_element(By.XPATH, notification_xpath)
-        notification_button.click()
-        print("Pressed notification button")
-    except NoSuchElementException:
-        pass
+    notification_button = driver.find_element(By.XPATH, notification_xpath)
+    notification_button.click()
+    print("Pressed notification button")
+    time.sleep(WAIT_TIME_SHORT)
 
     # Randomly like of dislike (loop of count_profiles profiles)
-    count_profiles = 10
-    for i in range(1, 10):
-        throw_dice = random.randint(1, 3)
+    count_profiles = 100  # Amount of profiles to loop through
+    for i in range(1, count_profiles):
+        choice = dislike_xpath
+        choice2 = dislike_xpath2
+        throw_dice = random.randint(1, 3)  # Like 1/3 of the profiles randomly
         if throw_dice == 1:
-            try:
-                choice_xpath = like_xpath
-                print("Clicking like")
-            # Catches the cases where there is a "Matched" pop-up in front of the "Like" button:
-            except ElementClickInterceptedException:
-                try:
-                    match_popup = driver.find_element_by_css_selector(".itsAMatch a")
-                    match_popup.click()
-                # Catches the cases where the "Like" button has not yet loaded, so wait 2 seconds before retrying.
-                except NoSuchElementException:
-                    time.sleep(WAIT_TIME)
+            choice = like_xpath
+            choice2 = dislike_xpath2
+            print("Clicking like")
         else:
-            choice_xpath = dislike_xpath
             print("Clicking dislike")
-        choice_button = driver.find_element(By.XPATH, choice_xpath)
-        choice_button.click()
-        time.sleep(WAIT_TIME)
+        # Try with first like/dislike button
+        try:
+            choice_button = driver.find_element(By.XPATH, choice)
+            choice_button.click()
+            time.sleep(WAIT_TIME_SHORT)
+        except ElementNotInteractableException:
+            time.sleep(WAIT_TIME_SHORT)
+            pass
+        except NoSuchElementException:
+            time.sleep(WAIT_TIME_SHORT)
+            pass
+        except ElementClickInterceptedException:
+            time.sleep(WAIT_TIME_SHORT)
+            pass
+        # Try with second like/dislike button
+        try:
+            choice2_button = driver.find_element(By.XPATH, choice2)
+            choice2_button.click()
+            time.sleep(WAIT_TIME_SHORT)
+        except ElementNotInteractableException:
+            time.sleep(WAIT_TIME_SHORT)
+            pass
+        except NoSuchElementException:
+            time.sleep(WAIT_TIME_SHORT)
+            pass
+        except ElementClickInterceptedException:
+            time.sleep(WAIT_TIME_SHORT)
+            pass
 
     # Log out
     profile_button = driver.find_element(By.XPATH, profile_xpath)
