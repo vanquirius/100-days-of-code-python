@@ -73,9 +73,9 @@ These are my solutions for the course below:<br>
 - Day 62: Flask, WTForms, Bootstrap and CSV - Coffee & Wifi Project
 - Day 63: Databases and with SQLite and SQLAlchemy
 - Day 64: My Top 10 Movies Website
-- *TODO:*
-- Day 65: Web Design School - How to Create a Website that People will Love
+- Day 65: Web Design School - How to Create a Website that People will Love *(no code)*
 - Day 66: Building Your Own API with RESTful Routing
+- *TODO:*
 - Day 67: Blog Capstone Project Part 3 - RESTful Routing
 - Day 68: Authentication with Flask
 - Day 69: Blog Capstone Project Part 4 - Adding Users
