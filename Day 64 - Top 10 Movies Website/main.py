@@ -14,7 +14,11 @@ from flask_wtf.csrf import CSRFProtect
 from wtforms import StringField, SubmitField, FloatField
 from wtforms.validators import DataRequired, NumberRange
 from sqlalchemy.exc import InvalidRequestError
-from tmdb import MovieSearch
+from tmdb import MovieSearch, MovieDetails
+
+MOVIE_DB_SEARCH_URL = "https://api.themoviedb.org/3/search/movie"
+MOVIE_DB_INFO_URL = "https://api.themoviedb.org/3/movie"
+MOVIE_DB_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
 
 # Flask setup with CSRF Protection + Bootstrap + WTForms
 app = Flask(__name__)
@@ -68,7 +72,14 @@ class EditMovieForm(FlaskForm):
 
 @app.route("/")
 def home():
-    all_movies = Movie.query.all()
+    # This line creates a list of all the movies sorted by rating, from best to worst
+    all_movies = Movie.query.order_by(Movie.rating.desc()).all()
+
+    # This line loops through all the movies
+    for i in range(len(all_movies)):
+        # Ranks movies according to their ratings
+        all_movies[i].ranking = i + 1
+    db.session.commit()
     return render_template("index.html", movies=all_movies)
 
 
@@ -79,9 +90,30 @@ def add():
     if form.validate_on_submit():
         # Search movie name in TMDB (might be multiple results)
         movie_search = MovieSearch(form.movie_name.data).get_movie_data()
-        print(movie_search)
         return render_template('select.html', movie_search=movie_search)
     return render_template('add.html', form=form)
+
+
+@app.route("/add_details", methods=["GET", "POST"])
+def add_details():
+    # Get movie details per the id being passed through
+    movie_id = request.args.get('id')
+    movie_details = MovieDetails(movie_id).get_movie_details()
+
+    # Add new movie to the database
+    new_movie = Movie(
+        title=movie_details["original_title"],
+        # The data in release_date includes month and day, we will want to get rid of.
+        year=movie_details["release_date"][:4],
+        description=movie_details["overview"],
+        rating=movie_details["vote_average"],
+        ranking="",
+        review="",
+        img_url=f"{MOVIE_DB_IMAGE_URL}{movie_details['poster_path']}"
+    )
+    db.session.add(new_movie)
+    db.session.commit()
+    return redirect(url_for("home"))
 
 
 @app.route("/edit", methods=["GET", "POST"])
