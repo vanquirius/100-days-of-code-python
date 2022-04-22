@@ -7,11 +7,14 @@
 # Day 68 - Authentication with Flask
 
 from flask import Flask, render_template, request, url_for, redirect, flash, send_from_directory
+from flask_wtf import FlaskForm
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import InvalidRequestError
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from flask_wtf.csrf import CSRFProtect
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
@@ -37,6 +40,14 @@ except InvalidRequestError:
     pass
 
 
+# WTForm
+class RegisterUser(FlaskForm):
+    email = StringField("E-mail", validators=[DataRequired()])
+    name = StringField("Name", validators=[DataRequired()])
+    password = StringField("Password", validators=[DataRequired()])
+    submit = SubmitField("Sign me up")
+
+
 @app.route('/')
 def home():
     return render_template("index.html")
@@ -44,7 +55,11 @@ def home():
 
 @app.route('/register')
 def register():
-    return render_template("register.html")
+    form = RegisterUser()
+    if form.validate_on_submit():
+        pass
+        return render_template('index.html')
+    return render_template("register.html", form=form)
 
 
 @app.route('/login')
