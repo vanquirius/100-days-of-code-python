@@ -1,14 +1,17 @@
 {% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
 
 <div class="box">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+         <p>{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
     <h1>Login</h1>
-
-    <form action="{{ url_for('login') }}" method="post">
-        <input type="text" name="email" placeholder="Email" required="required"/>
-        <input type="password" name="password" placeholder="Password" required="required"/>
-        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
-    </form>
+    {{ wtf.quick_form(form, novalidate=True, button_map={'submit':'primary'}) }}
 </div>
 
 {% endblock %}
