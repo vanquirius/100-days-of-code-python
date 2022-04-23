@@ -11,11 +11,12 @@ from flask_wtf.csrf import CSRFProtect
 import requests
 import os
 from send_email import SendEmail
+import secrets
 
 BLOG_URL = "https://api.npoint.io/46b7d5447ebd3c655f57"  # this gets pruned periodically, populate from blog-data.txt
 
 app = Flask(__name__)
-app.secret_key = "supersecretkey123456789"
+app.secret_key = secrets.token_urlsafe(250)
 csrf = CSRFProtect(app)
 csrf.init_app(app)
 

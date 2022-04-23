@@ -14,10 +14,11 @@ from wtforms import StringField, SubmitField, SelectField, HiddenField
 from wtforms.validators import DataRequired
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import InvalidRequestError
+import secrets
 
 # Flask setup with CSRF Protection + Bootstrap + WTForms
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'supersecret123'
+app.config['SECRET_KEY'] = secrets.token_urlsafe(250)
 csrf = CSRFProtect(app)
 csrf.init_app(app)
 Bootstrap(app)

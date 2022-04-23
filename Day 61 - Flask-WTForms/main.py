@@ -13,9 +13,10 @@ from wtforms import StringField, PasswordField, SubmitField
 # needs to install email_validator module; included in requirements.txt
 from wtforms.validators import DataRequired, Email, Length
 from flask_bootstrap import Bootstrap
+import secrets
 
 app = Flask(__name__)
-app.secret_key = "supersecretkey123456789"
+app.secret_key = secrets.token_urlsafe(250)
 Bootstrap(app)
 csrf = CSRFProtect(app)
 csrf.init_app(app)

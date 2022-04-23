@@ -9,13 +9,14 @@
 from flask import Flask, render_template
 from flask_wtf.csrf import CSRFProtect
 import requests
+import secrets
 
 BLOG_URL = "https://api.npoint.io/b48a954824422ec94216"  # this gets pruned periodically, populate from blog-data.txt
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
 csrf.init_app(app)
-
+app.config['SECRET_KEY'] = secrets.token_urlsafe(250)
 
 def get_blog_data():
     # Get blog data from bin

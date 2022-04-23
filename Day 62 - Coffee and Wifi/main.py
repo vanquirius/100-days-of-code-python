@@ -13,10 +13,10 @@ from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired, URL
 import csv
 from flask_wtf.csrf import CSRFProtect
-
+import secrets
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = secrets.token_urlsafe(250)
 csrf = CSRFProtect(app)
 csrf.init_app(app)
 Bootstrap(app)

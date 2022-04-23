@@ -11,12 +11,13 @@ from flask_sqlalchemy import SQLAlchemy
 # from flask_wtf.csrf import CSRFProtect
 from sqlalchemy.exc import InvalidRequestError
 import random
+import secrets
 
 # API Key to allow deletion
 CAFE_API_KEY = "TopSecretAPIKey"
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'Supersecret123'
+app.config['SECRET_KEY'] = secrets.token_urlsafe(250)
 # csrf = CSRFProtect(app)
 
 # Connect to Database

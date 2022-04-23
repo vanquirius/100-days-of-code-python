@@ -3,8 +3,9 @@
 {% block content %}
 
 <div class="box">
-	<h1>Register</h1>
-    {{ wtf.quick_form(form, novalidate=True) }}
+	{{ error_msg }}
+    <h1>Register</h1>
+    {{ wtf.quick_form(form, novalidate=True, button_map={'submit':'primary'}) }}
 </div>
 
 {% endblock %}

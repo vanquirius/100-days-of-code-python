@@ -15,6 +15,7 @@ from wtforms import StringField, SubmitField, FloatField
 from wtforms.validators import DataRequired, NumberRange
 from sqlalchemy.exc import InvalidRequestError
 from tmdb import MovieSearch, MovieDetails
+import secrets
 
 MOVIE_DB_SEARCH_URL = "https://api.themoviedb.org/3/search/movie"
 MOVIE_DB_INFO_URL = "https://api.themoviedb.org/3/movie"
@@ -22,7 +23,7 @@ MOVIE_DB_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
 
 # Flask setup with CSRF Protection + Bootstrap + WTForms
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = secrets.token_urlsafe(250)
 csrf = CSRFProtect(app)
 csrf.init_app(app)
 Bootstrap(app)
