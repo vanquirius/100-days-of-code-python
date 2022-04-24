@@ -75,9 +75,9 @@ These are my solutions for the course below:<br>
 - Day 64: My Top 10 Movies Website
 - Day 65: Web Design School - How to Create a Website that People will Love *(no code)*
 - Day 66: Building Your Own API with RESTful Routing
-- *TODO:*
 - Day 67: Blog Capstone Project Part 3 - RESTful Routing
 - Day 68: Authentication with Flask
+- - *TODO:*
 - Day 69: Blog Capstone Project Part 4 - Adding Users
 - Day 70: Deploying Your Web Application with Heroku
 - Day 71: Data Exploration with Pandas: College Major
