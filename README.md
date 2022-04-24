@@ -77,8 +77,8 @@ These are my solutions for the course below:<br>
 - Day 66: Building Your Own API with RESTful Routing
 - Day 67: Blog Capstone Project Part 3 - RESTful Routing
 - Day 68: Authentication with Flask
-- - *TODO:*
 - Day 69: Blog Capstone Project Part 4 - Adding Users
+- *TODO:*
 - Day 70: Deploying Your Web Application with Heroku
 - Day 71: Data Exploration with Pandas: College Major
 - Day 72: Data Visualisation with Matplotlib: Programming Languages
