@@ -17,4 +17,6 @@ class CustomSongList:
     def import_data(self):
         df = pandas.read_csv(DATAFILE)
         artist_songs_dict = df.to_dict(orient="records")
+        print("Custom songs list:")
+        print(artist_songs_dict)
         return artist_songs_dict

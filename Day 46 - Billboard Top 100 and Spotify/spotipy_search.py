@@ -36,21 +36,6 @@ class SpotipySearch:
         )
         self.user_id = self.sp.current_user()["id"]
 
-    def spotify_generate_uri_list(self, songs, year):
-        # Search for tracks by song name and year
-        self.songs = songs
-        self.user_year = year
-        for song in self.songs:
-            print(f"track:{song} year:{self.user_year}")
-            result = self.sp.search(q=f"track:{song} year:{self.user_year}", type="track")
-            try:
-                uri = result["tracks"]["items"][0]["uri"]
-                self.song_uris.append(uri)
-            except IndexError:
-                print(f"{song} doesn't exist in Spotify. Skipped.")
-        print("Song tracks from Spotify:")
-        print(self.song_uris)
-
     def spotify_generate_uri_list_artist_song(self, artist_songs_dict):
         # Search for tracks by song name and year
         for track in artist_songs_dict:
@@ -66,8 +51,9 @@ class SpotipySearch:
         print("Song tracks from Spotify:")
         print(self.song_uris)
 
-    def spotify_generate_playlist(self):
+    def spotify_generate_playlist(self, user_year=None):
         # Generate a playlist in Spotify from song tracks that were found
+        self.user_year = user_year
         if self.user_year is None:
             self.user_year = "Custom Playlist"
         playlist = self.sp.user_playlist_create(user=self.user_id, name=f"{self.user_year}",
