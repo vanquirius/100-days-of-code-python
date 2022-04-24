@@ -80,8 +80,8 @@ These are my solutions for the course below:<br>
 - Day 69: Blog Capstone Project Part 4 - Adding Users
 - Day 70: Deploying Your Web Application with Heroku *(skipped, Heroku/GitHub integration unavailable)*
 - Day 71: Data Exploration with Pandas: College Major
+- Day 72: Data Visualization with Matplotlib: Programming Languages
 - *TODO:*
-- Day 72: Data Visualisation with Matplotlib: Programming Languages
 - Day 73: Aggregate & Merge Data with Pandas: Analyse the LEGO Dataset
 - Day 74: Google Trends Data: Resampling and Visualising Time Series
 - Day 75: Beautiful Plotly Charts & Analysing the Android App Store
