@@ -79,7 +79,7 @@ These are my solutions for the course below:<br>
 - Day 68: Authentication with Flask
 - Day 69: Blog Capstone Project Part 4 - Adding Users
 - *TODO:*
-- Day 70: Deploying Your Web Application with Heroku
+- Day 70: Deploying Your Web Application with Heroku *(skipped, Heroku/GitHub integration unavailable)*
 - Day 71: Data Exploration with Pandas: College Major
 - Day 72: Data Visualisation with Matplotlib: Programming Languages
 - Day 73: Aggregate & Merge Data with Pandas: Analyse the LEGO Dataset
