@@ -81,14 +81,14 @@ These are my solutions for the course below:<br>
 - Day 70: Deploying Your Web Application with Heroku *(skipped, Heroku/GitHub integration unavailable)*
 - Day 71: Data Exploration with Pandas: College Major
 - Day 72: Data Visualization with Matplotlib: Programming Languages
-- *TODO:*
 - Day 73: Aggregate & Merge Data with Pandas: Analyse the LEGO Dataset
+- *TODO:*
 - Day 74: Google Trends Data: Resampling and Visualising Time Series
 - Day 75: Beautiful Plotly Charts & Analysing the Android App Store
 - Day 76: Computation with NumPy and N-Dimensional Arrays
-- Day 77: Linear Regression and Data Visualisation with Seaborn
-- Day 78: Analysing the Nobel Prize with Plotly, Matplotlib & Seaborn
-- Day 79: The Tragic Discovery of Handwashing: t-Tests & Distributions
+- Day 77: Linear Regression and Data Visualization with Seaborn
+- Day 78: Analyzing the Nobel Prize with Plotly, Matplotlib & Seaborn
+- Day 79: The Tragic Discovery of Hand washing: t-Tests & Distributions
 - Day 80: Capstone Project - Predict House Prices
 
 ## 👨‍💻 | Professional *(Not started)*
