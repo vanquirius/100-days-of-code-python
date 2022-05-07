@@ -82,8 +82,8 @@ These are my solutions for the course below:<br>
 - Day 71: Data Exploration with Pandas: College Major
 - Day 72: Data Visualization with Matplotlib: Programming Languages
 - Day 73: Aggregate & Merge Data with Pandas: Analyse the LEGO Dataset
-- *TODO:*
 - Day 74: Google Trends Data: Resampling and Visualizing Time Series
+- *TODO:*
 - Day 75: Beautiful Plotly Charts & Analysing the Android App Store
 - Day 76: Computation with NumPy and N-Dimensional Arrays
 - Day 77: Linear Regression and Data Visualization with Seaborn
