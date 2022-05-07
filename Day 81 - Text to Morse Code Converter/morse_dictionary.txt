@@ -1,0 +1,385 @@
+a:
+· − (0:01)
+0:01
+Letters	B, b
+− · · ·  (0:01)
+0:02
+Letters	C, c
+− · − ·  (0:01)
+0:02
+Letters	D, d
+− · ·  (0:01)
+0:01
+Letters	E, e
+·  (0:00)
+0:01
+Letters	F, f
+· · − ·  (0:01)
+0:02
+Letters	G, g
+− − ·  (0:01)
+0:02
+Letters	H, h
+· · · ·  (0:01)
+0:01
+Letters	I, i
+· ·  (0:01)
+0:01
+Letters	J, j
+· − − −  (0:02)
+0:02
+Letters	K, k
+
+Prosign for
+"Invitation to transmit"
+− · −  (0:01)
+0:02
+Letters	L, l
+· − · ·  (0:01)
+0:02
+Letters	M, m
+− −  (0:01)
+0:01
+Letters	N, n
+− ·  (0:01)
+0:01
+Letters	O, o
+− − −  (0:01)
+0:02
+Letters	P, p
+· − − ·  (0:01)
+0:02
+Letters	Q, q
+− − · −  (0:02)
+0:02
+Letters	R, r
+· − ·  (0:01)
+0:01
+Letters	S, s
+· · ·  (0:01)
+0:01
+Letters	T, t
+−  (0:01)
+0:01
+Letters	U, u
+· · −  (0:01)
+0:01
+Letters	V, v
+· · · −  (0:01)
+0:02
+Letters	W, w
+· − −  (0:01)
+0:02
+Letters	X, x
+− · · −  (0:01)
+0:02
+Letters	Y, y
+− · − −  (0:02)
+0:02
+Letters	Z, z
+− − · ·  (0:01)
+0:02
+Numbers	0
+− − − − −  (0:02)
+0:03
+Numbers	1
+· − − − −  (0:02)
+0:02
+Numbers	2
+· · − − −  (0:02)
+0:02
+Numbers	3
+· · · − −  (0:02)
+0:02
+Numbers	4
+· · · · −  (0:01)
+0:02
+Numbers	5
+· · · · ·  (0:01)
+0:02
+Numbers	6
+− · · · ·  (0:01)
+0:02
+Numbers	7
+− − · · ·  (0:02)
+0:02
+Numbers	8
+− − − · ·  (0:02)
+0:02
+Numbers	9
+− − − − ·  (0:02)
+0:02
+Punctuation	Period [.]
+· − · − · −  (0:02)
+0:02
+Punctuation	Comma [,]
+− − · · − −  (0:02)
+0:03
+Punctuation	Question Mark [?]
+· · − − · ·  (0:02)
+0:02
+Punctuation	Apostrophe [']
+· − − − − ·  (0:02)
+0:03
+Punctuation	Exclamation Point [!]
+
+KW digraph[e]
+− · − · − −  (0:02)
+0:03
+Punctuation	Slash/Fraction Bar [/]
+− · · − ·  (0:02)
+0:02
+Punctuation	Parenthesis (Open)
+− · − − ·  (0:02)
+0:02
+Punctuation	Parenthesis (Close)
+− · − − · −  (0:02)
+0:03
+Punctuation	Ampersand[e] [&]
+
+AS digraph
+Prosign for wait
+· − · · ·  (0:01)
+0:02
+Punctuation	Colon [:]
+− − − · · ·  (0:02)
+0:02
+Punctuation	Semicolon [;] [e]
+− · − · − ·  (0:02)
+0:02
+Punctuation	Double Dash [=]
+
+BT digraph
+Prosign for
+"new paragraph"
+− · · · −  (0:02)
+0:02
+Punctuation	Plus sign [+]
+· − · − ·  (0:02)
+0:02
+Punctuation	Hyphen, Minus Sign [-]
+− · · · · −  (0:02)
+0:02
+Punctuation	Underscore [_][e]
+· · − − · −  (0:02)
+0:02
+Punctuation	Quotation mark ["]
+· − · · − ·  (0:02)
+0:02
+Punctuation	Dollar sign [$] [e]
+
+SX digraph[e]
+· · · − · · −  (0:02)
+0:02
+Punctuation	At Sign [@]
+
+AC digraph
+· − − · − ·  (0:02)
+0:02
+Prosigns	End of work
+· · · − · − (0:02)
+0:02
+Prosigns	Error
+· · · · · · · · (0:02)
+0:02
+Prosigns	Invitation to transmit
+
+Also used for k
+− · − (0:01)
+0:02
+Prosigns	Starting Signal
+− · − · − (0:02)
+0:02
+Prosigns	New Page Signal
+
+AR digraph
+Message separator[f]
+· − · − · (0:02)
+0:02
+Prosigns	Understood
+
+Also used for Ŝ
+· · · − · (0:01)
+0:02
+Prosigns	Wait
+
+also proposed for
+use as Ampersand [&]
+· − · · · (0:01)
+0:02
+non-Latin
+extensions	À, à
+
+Shared by À, Å
+· − − · −  (0:02)
+0:02
+non-Latin
+extensions	Ä, ä
+
+Shared by Ä, Æ, Ą
+· − · −  (0:01)
+0:02
+non-Latin
+extensions	Å, å
+
+Shared by À, Å
+· − − · −  (0:02)
+0:02
+non-Latin
+extensions	Ą, ą
+
+Shared by Ä, Æ, Ą
+· − · −  (0:01)
+0:02
+non-Latin
+extensions	Æ, æ
+
+Shared by Ä, Æ, Ą
+· − · −  (0:01)
+0:02
+non-Latin
+extensions	Ć, ć
+
+Shared by Ć, Ĉ, Ç
+− · − · · (0:02)
+0:02
+non-Latin
+extensions	Ĉ, ĉ
+
+Shared by Ć, Ĉ, Ç
+− · − · ·  (0:02)
+0:02
+non-Latin
+extensions	Ç, ç
+
+Shared by Ć, Ĉ, Ç
+− · − · ·  (0:02)
+0:02
+non-Latin
+extensions	CH, ch
+
+Shared by CH, Ĥ, Š
+− − − −  (0:02)
+0:02
+non-Latin
+extensions	Đ, đ
+
+Shared by Đ, É,[g] Ę
+Not to be confused
+with Eth (Ð, ð)
+· · − · ·  (0:01)
+0:02
+non-Latin
+extensions	Ð, ð
+
+Not to be confused
+with D with stroke (Đ, đ)
+· · − − ·  (0:02)
+0:02
+non-Latin
+extensions	É, é[g]
+
+Shared by Đ, É,[g] Ę
+· · − · ·  (0:01)
+0:02
+non-Latin
+extensions	È, è
+
+Shared by È, Ł
+· − · · −  (0:02)
+0:02
+non-Latin
+extensions	Ę, ę
+
+Shared by Đ, É,[g] Ę
+· · − · ·  (0:01)
+0:02
+non-Latin
+extensions	Ĝ, ĝ
+− − · − ·  (0:02)
+0:02
+non-Latin
+extensions	Ĥ, ĥ
+
+Shared by CH, Ĥ, Š
+− − − −  (0:02)
+0:02
+non-Latin
+extensions	Ĵ, ĵ
+· − − − ·  (0:02)
+0:02
+non-Latin
+extensions	Ł, ł
+
+Shared by È, Ł
+· − · · −  (0:02)
+0:02
+non-Latin
+extensions	Ń, ń
+
+Shared by Ń, Ñ
+− − · − −  (0:02)
+0:02
+non-Latin
+extensions	Ñ, ñ
+
+Shared by Ń, Ñ
+− − · − −  (0:02)
+0:02
+non-Latin
+extensions	Ó, ó
+
+Shared by Ó, Ö, Ø
+− − − ·  (0:02)
+0:02
+non-Latin
+extensions	Ö, ö
+
+Shared by Ó, Ö, Ø
+− − − · (0:02)
+0:02
+non-Latin
+extensions	Ø, ø
+
+Shared by Ó, Ö, Ø
+− − − · (0:02)
+0:02
+non-Latin
+extensions	Ś, ś
+· · · − · · · (0:02)
+0:02
+non-Latin
+extensions	Ŝ, ŝ
+
+Prosign for "Understood"
+· · · − · (0:01)
+0:02
+non-Latin
+extensions	Š, š
+
+Shared by CH, Ĥ, Š
+− − − − (0:02)
+0:02
+non-Latin
+extensions	Þ, þ
+· − − · · (0:02)
+0:02
+non-Latin
+extensions	Ü, ü
+
+Shared by Ü, Ŭ
+· · − − (0:01)
+0:02
+non-Latin
+extensions	Ŭ, ŭ
+
+Shared by Ü, Ŭ
+· · − − (0:01)
+0:02
+non-Latin
+extensions	Ź, ź
+− − · · − · (0:02)
+0:02
+non-Latin
+extensions	Ż, ż
+− − · · − (0:02)
