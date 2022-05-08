@@ -12,3 +12,42 @@
 # Wikipedia for Morse Code
 # https://en.wikipedia.org/wiki/Morse_code
 
+MORSE_CODE_DICT = {'A': '.-', 'B': '-...',
+                   'C': '-.-.', 'D': '-..', 'E': '.',
+                   'F': '..-.', 'G': '--.', 'H': '....',
+                   'I': '..', 'J': '.---', 'K': '-.-',
+                   'L': '.-..', 'M': '--', 'N': '-.',
+                   'O': '---', 'P': '.--.', 'Q': '--.-',
+                   'R': '.-.', 'S': '...', 'T': '-',
+                   'U': '..-', 'V': '...-', 'W': '.--',
+                   'X': '-..-', 'Y': '-.--', 'Z': '--..',
+                   '1': '.----', '2': '..---', '3': '...--',
+                   '4': '....-', '5': '.....', '6': '-....',
+                   '7': '--...', '8': '---..', '9': '----.',
+                   '0': '-----', ', ': '--..--', '.': '.-.-.-',
+                   '?': '..--..', '/': '-..-.', '-': '-....-',
+                   '(': '-.--.', ')': '-.--.-'}
+
+
+# Capture keyboard input from user
+def capture_input() -> str:
+    string_input = str(input("Enter your message here:").upper())
+    return string_input
+
+
+# Convert a text string to morse
+def text_to_morse(input_text) -> str:
+    morse_message = ""
+    for i in input_text:
+        if i in MORSE_CODE_DICT:
+            morse_message += str(MORSE_CODE_DICT.get(i)) + " "
+        else:
+            print("Warning: character not in dictionary")
+            morse_message += i
+    print("In morse:")
+    print(morse_message)
+    return morse_message
+
+
+string = capture_input()
+text_to_morse(string)

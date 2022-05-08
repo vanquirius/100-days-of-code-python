@@ -83,32 +83,31 @@ These are my solutions for the course below:<br>
 - Day 72: Data Visualization with Matplotlib: Programming Languages
 - Day 73: Aggregate & Merge Data with Pandas: Analyse the LEGO Dataset
 - Day 74: Google Trends Data: Resampling and Visualizing Time Series
-- *TODO:*
-- Day 75: Beautiful Plotly Charts & Analysing the Android App Store
-- Day 76: Computation with NumPy and N-Dimensional Arrays
-- Day 77: Linear Regression and Data Visualization with Seaborn
-- Day 78: Analyzing the Nobel Prize with Plotly, Matplotlib & Seaborn
-- Day 79: The Tragic Discovery of Hand washing: t-Tests & Distributions
-- Day 80: Capstone Project - Predict House Prices
+- Day 75: Beautiful Plotly Charts & Analysing the Android App Store (*todo*)
+- Day 76: Computation with NumPy and N-Dimensional Arrays (*todo*)
+- Day 77: Linear Regression and Data Visualization with Seaborn (*todo*)
+- Day 78: Analyzing the Nobel Prize with Plotly, Matplotlib & Seaborn (*todo*)
+- Day 79: The Tragic Discovery of Hand washing: t-Tests & Distributions (*todo*)
+- Day 80: Capstone Project - Predict House Prices (*todo*)
 
-## 👨‍💻 | Professional *(Not started)*
+## 👨‍💻 | Professional *(In progress)*
 - Day 81: Portfolio Project - Text to Morse Code Converter
-- Day 82: Portfolio Project - A website to show off your skills and the things I built
-- Day 83: Portfolio Project - Built a text-based version of the Tic Tac Toe game
-- Day 84: Portfolio Project - A program where you can upload images and add a watermark
-- Day 85: Portfolio Project - A Tkinter GUI desktop application that tests your typing speed
-- Day 86: Portfolio Project - Using Python Turtle, build a clone of the 80's hit game Breakout
-- Day 87: Portfolio Project - Built a website that lists cafes with wifi and power for remote working
-- Day 88: Portfolio Project - Built a todo list website with Flask
-- Day 89: Portfolio Project - Disappearing Text Writing App
-- Day 90: Portfolio Project - Convert PDF to Audiobook
-- Day 91: Portfolio Project - Image Colour Palette Generator
-- Day 92: Portfolio Project - Built a custom web scraper to collect data
-- Day 93: Portfolio Project - Automate the Google Dinosaur Game
-- Day 94: Portfolio Project - Space Invaders
-- Day 95: Portfolio Project - Built a custom website using an API
-- Day 96: Portfolio Project - An eCommerce website with payment processing
-- Day 97: Portfolio Project - Sent a WhatsApp Message with Python
-- Day 98: Portfolio Project - Analysed and Visualize the Space Race
-- Day 99: Portfolio Project - Analyzing Deaths involving Police in the United States
-- Day 100: Portfolio Project - Predicting Earnings using Multivariable Regression
+- Day 82: Portfolio Project - A website to show off your skills and the things I built (*todo*)
+- Day 83: Portfolio Project - Built a text-based version of the Tic Tac Toe game (*todo*)
+- Day 84: Portfolio Project - A program where you can upload images and add a watermark (*todo*)
+- Day 85: Portfolio Project - A Tkinter GUI desktop application that tests your typing speed (*todo*)
+- Day 86: Portfolio Project - Using Python Turtle, build a clone of the 80's hit game Breakout (*todo*)
+- Day 87: Portfolio Project - Built a website that lists cafes with wifi and power for remote working (*todo*)
+- Day 88: Portfolio Project - Built a todo list website with Flask (*todo*)
+- Day 89: Portfolio Project - Disappearing Text Writing App (*todo*)
+- Day 90: Portfolio Project - Convert PDF to Audiobook (*todo*)
+- Day 91: Portfolio Project - Image Colour Palette Generator (*todo*)
+- Day 92: Portfolio Project - Built a custom web scraper to collect data (*todo*)
+- Day 93: Portfolio Project - Automate the Google Dinosaur Game (*todo*)
+- Day 94: Portfolio Project - Space Invaders (*todo*)
+- Day 95: Portfolio Project - Built a custom website using an API (*todo*)
+- Day 96: Portfolio Project - An eCommerce website with payment processing (*todo*)
+- Day 97: Portfolio Project - Sent a WhatsApp Message with Python (*todo*)
+- Day 98: Portfolio Project - Analysed and Visualize the Space Race (*todo*)
+- Day 99: Portfolio Project - Analyzing Deaths involving Police in the United States (*todo*)
+- Day 100: Portfolio Project - Predicting Earnings using Multivariable Regression (*todo*)
