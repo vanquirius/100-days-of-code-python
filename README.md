@@ -3,20 +3,7 @@ These are my solutions for the course below:<br>
 [100 Days of Code - The Complete Python Pro Bootcamp for 2022](https://www.udemy.com/course/100-days-of-code)
 
 ## 👨🏻‍🎓 | Beginner *(skipped)*
-- Day 1: Working with Variables in Python to Manage Data
-- Day 2: Understanding Data Types and How to Manipulate Strings
-- Day 3: Control Flow and Logical Operators
-- Day 4: Randomisation and Python Lists
-- Day 5: Python Loops
-- Day 6: Python Functions & Karel
-- Day 7: Hangman
-- Day 8: Function Parameters & Caesar Cipher
-- Day 9: Dictionaries, Nesting and the Secret Auction
-- Day 10: Function Return Values and the Calculator Project
-- Day 11: Blackjack Capstone Project
-- Day 12: Scope and Namespacing in Python
-- Day 13: Debugging: How to Find and Fix Errors in your Code
-- Day 14: Higher Lower Game Project
+
 
 ## 🏋🏻‍♂️ | Intermediate - Done
 - Day 15: Local Development Environment Setup & the Coffee Machine Project
@@ -83,12 +70,6 @@ These are my solutions for the course below:<br>
 - Day 72: Data Visualization with Matplotlib: Programming Languages
 - Day 73: Aggregate & Merge Data with Pandas: Analyse the LEGO Dataset
 - Day 74: Google Trends Data: Resampling and Visualizing Time Series
-- Day 75: Beautiful Plotly Charts & Analysing the Android App Store (*todo*)
-- Day 76: Computation with NumPy and N-Dimensional Arrays (*todo*)
-- Day 77: Linear Regression and Data Visualization with Seaborn (*todo*)
-- Day 78: Analyzing the Nobel Prize with Plotly, Matplotlib & Seaborn (*todo*)
-- Day 79: The Tragic Discovery of Hand washing: t-Tests & Distributions (*todo*)
-- Day 80: Capstone Project - Predict House Prices (*todo*)
 
 ## 👨‍💻 | Professional *(In progress)*
-- Day 81: Portfolio Project - Text to Morse Code Converter
+- Day 81: Text to Morse Code Converter
