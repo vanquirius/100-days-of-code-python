@@ -53,7 +53,7 @@ These are my solutions for the course below:<br>
 - Day 57: Templating with Jinja and Blog Project
 - Day 58: Bootstrap
 
-## 🚀 | Advanced - In Progress
+## 🚀 | Advanced - Mostly Done
 - Day 59: Upgraded Blog with Bootstrap
 - Day 60: HTML Forms with Flask
 - Day 61: Building Advanced Forms with WTForms
@@ -71,5 +71,5 @@ These are my solutions for the course below:<br>
 - Day 73: Aggregate & Merge Data with Pandas: Analyse the LEGO Dataset
 - Day 74: Google Trends Data: Resampling and Visualizing Time Series
 
-## 👨‍💻 | Professional *(In progress)*
+## 👨‍💻 | Professional *(Only one day done)*
 - Day 81: Text to Morse Code Converter
